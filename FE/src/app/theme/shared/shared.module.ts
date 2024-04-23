@@ -16,6 +16,7 @@ import {
   NgSelectInputLabelTemplateDirective,
 } from './directives/form-template.directive';
 import { FilterPipe } from './Pipes/filter-pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -34,6 +35,7 @@ import { FilterPipe } from './Pipes/filter-pipe';
     BreadcrumbModule,
     NgbModule,
     NgScrollbarModule,
+    HttpClientModule
   ],
   exports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { FilterPipe } from './Pipes/filter-pipe';
     NgbModule,
     NgScrollbarModule,
     TypeheadInputComponent,
-    FilterPipe
+    FilterPipe,
+    HttpClientModule
   ],
 })
 export class SharedModule { }

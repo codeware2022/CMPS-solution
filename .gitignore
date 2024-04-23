@@ -482,3 +482,10 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+
+# Ignore node_modules in frontend
+FE/node_modules/
+
+# Ignore Cache
+FE/.angular

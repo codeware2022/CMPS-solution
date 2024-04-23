@@ -5,7 +5,7 @@ import { GuestComponent } from './theme/layout/guest/guest.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: AdminComponent,
     children: [
       {
@@ -68,10 +68,17 @@ const routes: Routes = [
     path: '',
     component: GuestComponent,
     children: [
+
+      {
+        path: '',
+        redirectTo: 'auth',
+        pathMatch: 'full',
+      },
+
       {
         path: 'auth',
         loadChildren: () =>
-          import('./demo/pages/authentication/authentication.module').then(
+          import('./modules/authentication/authentication.module').then(
             (m) => m.AuthenticationModule,
           ),
       },
