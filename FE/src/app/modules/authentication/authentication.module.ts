@@ -9,8 +9,9 @@ import { LoginComponent } from './page/login/login.component';
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [CommonModule, AuthenticationRoutingModule, SharedModule],
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }

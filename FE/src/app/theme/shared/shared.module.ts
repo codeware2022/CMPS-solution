@@ -17,6 +17,7 @@ import {
 } from './directives/form-template.directive';
 import { FilterPipe } from './Pipes/filter-pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgTypeheadInputLabelTemplateDirective,
     NgSelectInputOptionTemplateDirective,
     NgSelectInputLabelTemplateDirective,
-    FilterPipe
+    FilterPipe,
+    ValidationMessagesComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgScrollbarModule,
     TypeheadInputComponent,
     FilterPipe,
-    HttpClientModule
+    HttpClientModule,
+    ValidationMessagesComponent
   ],
 })
 export class SharedModule { }
