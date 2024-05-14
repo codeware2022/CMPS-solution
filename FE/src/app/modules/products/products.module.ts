@@ -6,11 +6,13 @@ import { ProductMasterComponent } from './page/product-master/product-master.com
 import { CardModule } from 'src/app/theme/shared/components';
 import { TypeheadInputComponent } from 'src/app/theme/shared/components/typehead-input/typehead-input.component';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { AddProductComponent } from './page/add-product/add-product.component';
 
 
 @NgModule({
   declarations: [
-    ProductMasterComponent
+    ProductMasterComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
