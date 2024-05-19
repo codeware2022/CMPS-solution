@@ -56,6 +56,14 @@ const NavigationItems = [
         icon: 'feather icon-home',
         classes: 'nav-item',
       },
+      {
+        id: 'categories',
+        title: 'Product Categories',
+        type: 'item',
+        url: '/home/categories',
+        icon: 'feather icon-home',
+        classes: 'nav-item',
+      },
     ],
   },
   {

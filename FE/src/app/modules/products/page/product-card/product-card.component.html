@@ -1,4 +1,4 @@
-<div class="card" (click)="openPopup()">
+<div class="card" (click)="productDetail(item)">
   <img [src]="item.imageUrl" class="card-img-top fixed-size-image" alt="Product Image">
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
@@ -7,6 +7,4 @@
   </div>
 </div>
 
-<app-item-card-detail *ngIf="isModalVisible" [product]="item" (close)="closePopup()"></app-item-card-detail>
-
-
+<!-- <app-item-card-detail *ngIf="isModalVisible" [product]="item" (close)="closePopup()"></app-item-card-detail> -->

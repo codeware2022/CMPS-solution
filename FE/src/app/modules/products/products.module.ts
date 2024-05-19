@@ -7,12 +7,17 @@ import { CardModule } from 'src/app/theme/shared/components';
 import { TypeheadInputComponent } from 'src/app/theme/shared/components/typehead-input/typehead-input.component';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { AddProductComponent } from './page/add-product/add-product.component';
+import { ProductCardComponent } from './page/product-card/product-card.component';
+import { ProductDetailComponent } from './page/product-detail/product-detail.component';
+
 
 
 @NgModule({
   declarations: [
-    ProductMasterComponent,
-    AddProductComponent
+    ProductMasterComponent,  
+    AddProductComponent,
+    ProductCardComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,

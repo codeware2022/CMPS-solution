@@ -7,6 +7,7 @@ import { IItem } from 'src/app/theme/shared/models/Item';
   styleUrls: ['./item-card-detail.component.scss']
 })
 export class ItemCardDetailComponent {
+  @Input() isVisible = false;
   @Input() product: IItem; // Input property to receive card data from parent component
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
 

@@ -8,14 +8,13 @@ import { IItem } from 'src/app/theme/shared/models/Item';
 })
 export class ItemCardComponent {
   @Input() item : IItem;
-
-  isPopupOpen: boolean = false;
+  isModalVisible = false;
 
   openPopup() {
-    this.isPopupOpen = true;
+    this.isModalVisible = true;
   }
 
   closePopup() {
-    this.isPopupOpen = false;
+    this.isModalVisible = false;
   }
 }
