@@ -8,12 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   submitted = false;
   errorMessages: string[] = [];
 
+<<<<<<< HEAD
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router : Router) {
+=======
+  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {
+>>>>>>> development
   }
 
   initializeForm() {
@@ -23,7 +27,7 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  
+
   ngOnInit(): void {
     this.initializeForm();
   }
@@ -35,9 +39,19 @@ export class LoginComponent implements OnInit{
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
+<<<<<<< HEAD
           this.router.navigate(['/home']);
+=======
+          this.router.navigateByUrl('/home/dashboard')
+>>>>>>> development
         },
-        error: error => { error }
+        error: error => {
+          if (error.error.errors) {
+            this.errorMessages = error.error.errors;
+          } else {
+            this.errorMessages.push(error.error);
+          }
+        }
       })
     }
   }

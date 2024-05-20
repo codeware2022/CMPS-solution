@@ -18,6 +18,8 @@ import {
 import { FilterPipe } from './Pipes/filter-pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
+import { NotificationComponent } from './components/modals/notification/notification.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -27,7 +29,8 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
     NgSelectInputOptionTemplateDirective,
     NgSelectInputLabelTemplateDirective,
     FilterPipe,
-    ValidationMessagesComponent
+    ValidationMessagesComponent,
+    NotificationComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
     BreadcrumbModule,
     NgbModule,
     NgScrollbarModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   exports: [
     CommonModule,
@@ -51,7 +55,8 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
     TypeheadInputComponent,
     FilterPipe,
     HttpClientModule,
-    ValidationMessagesComponent
+    ValidationMessagesComponent,
+    NotificationComponent
   ],
 })
 export class SharedModule { }
