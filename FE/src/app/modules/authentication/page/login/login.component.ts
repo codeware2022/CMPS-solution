@@ -13,11 +13,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   errorMessages: string[] = [];
 
-<<<<<<< HEAD
-  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router : Router) {
-=======
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) {
->>>>>>> development
   }
 
   initializeForm() {
