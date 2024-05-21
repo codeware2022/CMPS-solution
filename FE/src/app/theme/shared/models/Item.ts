@@ -5,11 +5,20 @@ export interface IItem{
     imageUrl: string;
     description: string;
     categoryId: number;
+    subCategoryId: number;
 }
 
 export interface ICategory{
     id: number;
-    categoryName: string;
-    categoryImage: string;
+    name: string;
+    icon: string;
     description: string;
+}
+
+export interface ISubCategory{
+    id: number;
+    name: string;
+    icon: string;
+    description: string;
+    categoryId: number;
 }

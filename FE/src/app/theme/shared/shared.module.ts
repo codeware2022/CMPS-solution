@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { NotificationComponent } from './components/modals/notification/notification.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -30,7 +31,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NgSelectInputLabelTemplateDirective,
     FilterPipe,
     ValidationMessagesComponent,
-    NotificationComponent
+    NotificationComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FilterPipe,
     HttpClientModule,
     ValidationMessagesComponent,
-    NotificationComponent
+    NotificationComponent,
+    DropdownComponent
   ],
 })
 export class SharedModule { }
