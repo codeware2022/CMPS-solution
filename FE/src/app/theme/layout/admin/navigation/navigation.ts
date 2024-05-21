@@ -42,11 +42,49 @@ const NavigationItems = [
       },
       {
         id: 'rep',
-        title: 'Rep Details',
+        title: 'Team',
         type: 'item',
         url: '/home/rep',
         icon: 'feather icon-home',
         classes: 'nav-item',
+      },
+      {      
+        id: 'basic',
+        title: 'Team',
+        type: 'collapse',
+        icon: 'feather icon-box',
+        children: [
+              {
+                id: 'rep',
+                title: 'Brand Manager',
+                type: 'item',
+                url: '/home/rep',
+              },
+              {
+                id: 'badges',
+                title: 'Brand Coordinator',
+                type: 'item',
+                url: '/basic/badges',
+              },
+              {
+                id: 'breadcrumb-pagination',
+                title: 'Medical Rep',
+                type: 'item',
+                url: '/basic/breadcrumb-paging',
+              },
+              {
+                id: 'collapse',
+                title: 'Sales Rep',
+                type: 'item',
+                url: '/basic/collapse',
+              },
+              {
+                id: 'tabs-pills',
+                title: 'Marketing Admin',
+                type: 'item',
+                url: '/basic/tabs-pills',
+              } 
+        ],
       },
       {
         id: 'products',
