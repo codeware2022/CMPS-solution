@@ -9,6 +9,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { AddProductComponent } from './page/add-product/add-product.component';
 import { ProductCardComponent } from './page/product-card/product-card.component';
 import { ProductDetailComponent } from './page/product-detail/product-detail.component';
+import { ProductCategoryIconComponent } from './page/product-category-icon/product-category-icon.component';
 
 
 
@@ -18,6 +19,7 @@ import { ProductDetailComponent } from './page/product-detail/product-detail.com
     AddProductComponent,
     ProductCardComponent,
     ProductDetailComponent,
+    ProductCategoryIconComponent,
   ],
   imports: [
     CommonModule,

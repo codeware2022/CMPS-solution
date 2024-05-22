@@ -1,4 +1,4 @@
-export interface IItem{
+export interface IProduct{
     id: number;
     name: string;
     price: number;
@@ -13,6 +13,8 @@ export interface ICategory{
     name: string;
     icon: string;
     description: string;
+    subcategories: ISubCategory[];
+    products: IProduct[];
 }
 
 export interface ISubCategory{
@@ -21,4 +23,5 @@ export interface ISubCategory{
     icon: string;
     description: string;
     categoryId: number;
+    products: IProduct[];
 }

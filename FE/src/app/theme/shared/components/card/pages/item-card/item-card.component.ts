@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IItem } from 'src/app/theme/shared/models/Item';
+import { IProduct } from 'src/app/theme/shared/models/Item';
 
 @Component({
   selector: 'app-item-card',
@@ -7,7 +7,7 @@ import { IItem } from 'src/app/theme/shared/models/Item';
   styleUrls: ['./item-card.component.scss']
 })
 export class ItemCardComponent {
-  @Input() item : IItem;
+  @Input() item : IProduct;
   isModalVisible = false;
 
   openPopup() {
