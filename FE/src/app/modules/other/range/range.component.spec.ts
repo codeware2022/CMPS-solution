@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RepComponent } from './rep.component';
+import { RangeComponent } from './range.component';
 
-describe('RepComponent', () => {
-  let component: RepComponent;
-  let fixture: ComponentFixture<RepComponent>;
+describe('RangeComponent', () => {
+  let component: RangeComponent;
+  let fixture: ComponentFixture<RangeComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RepComponent]
+      declarations: [RangeComponent]
     });
-    fixture = TestBed.createComponent(RepComponent);
+    fixture = TestBed.createComponent(RangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

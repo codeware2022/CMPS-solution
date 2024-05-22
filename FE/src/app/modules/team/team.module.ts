@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CardModule } from "../../theme/shared/components/card/card.module";
 
 import { TeamRoutingModule } from './team-routing.module';
 import { BrandManagerComponent } from './page/brand-manager/brand-manager.component';
@@ -19,7 +20,8 @@ import { MarketingAdminComponent } from './page/marketing-admin/marketing-admin.
   ],
   imports: [
     CommonModule,
-    TeamRoutingModule
+    TeamRoutingModule,
+    CardModule
   ]
 })
 export class TeamModule { }
