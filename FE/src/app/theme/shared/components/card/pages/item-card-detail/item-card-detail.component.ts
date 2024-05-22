@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IItem } from 'src/app/theme/shared/models/Item';
+import { IProduct } from 'src/app/theme/shared/models/Item';
 
 @Component({
   selector: 'app-item-card-detail',
@@ -8,7 +8,7 @@ import { IItem } from 'src/app/theme/shared/models/Item';
 })
 export class ItemCardDetailComponent {
   @Input() isVisible = false;
-  @Input() product: IItem; // Input property to receive card data from parent component
+  @Input() product: IProduct; // Input property to receive card data from parent component
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
 
   closePopup() {

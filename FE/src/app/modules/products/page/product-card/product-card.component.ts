@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IItem } from 'src/app/theme/shared/models/Item';
+import { IProduct } from 'src/app/theme/shared/models/Item';
 
 @Component({
   selector: 'app-product-card',
@@ -8,12 +8,12 @@ import { IItem } from 'src/app/theme/shared/models/Item';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
-  @Input() item : IItem;
+  @Input() item : IProduct;
   isModalVisible = false;
 
   constructor(private router: Router) {}
 
-  productDetail(product: IItem) {
+  productDetail(product: IProduct) {
     this.router.navigate(['/home/detail'], { state: { data: product } });
   }
 
