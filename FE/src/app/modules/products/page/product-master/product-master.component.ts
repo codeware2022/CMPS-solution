@@ -21,6 +21,13 @@ export class ProductMasterComponent implements OnInit {
   categories: ICategory[] = [];
   subCategoriesAll: ISubCategory[] = [];
   subCategories: ISubCategory[] = [];
+
+  currentPage = 1;
+  itemsPerPage = 8;
+
+  currentPageProducts = 1;
+  itemsPerPageProducts = 5;
+
   constructor() {
 
   }
@@ -29,7 +36,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 1,
         name: "Common Cold and Alergy Drugs",
-        icon: "assets/images/Categories/Category-1.webp",
+        icon: "assets/images/Categories/Cat-1.png",
         description: "description of the drug category",
         subcategories: [],
         products: [{
@@ -72,7 +79,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 2,
         name: "Cough and Asthma Drugs",
-        icon: "assets/images/Categories/Category-2.jpg",
+        icon: "assets/images/Categories/cat-2.png",
         description: "description of the drug category",
         subcategories: [],
         products: [{
@@ -135,7 +142,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 3,
         name: "Cardiovascular drugs",
-        icon: "assets/images/Categories/Category-3.jpg",
+        icon: "assets/images/Categories/cat-3.webp",
         description: "description of the drug category",
         subcategories: [{
           id: 1,
@@ -222,7 +229,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 4,
         name: "Drugs use for GI diseases",
-        icon: "assets/images/Categories/Category-4.png",
+        icon: "assets/images/Categories/cat-4.webp",
         description: "description of the drug category",
         subcategories: [
           {
@@ -360,7 +367,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 5,
         name: "Antidiabetic drugs",
-        icon: "assets/images/Categories/Category-5.jfif",
+        icon: "assets/images/Categories/cat-5.png",
         description: "description of the drug category",
         subcategories: [],
         products: [
@@ -409,7 +416,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 6,
         name: "Antibacteial Drugs",
-        icon: "assets/images/Categories/Category-6.jfif",
+        icon: "assets/images/Categories/cat-6.png",
         description: "description of the drug category",
         subcategories: [],
         products: [
@@ -438,7 +445,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 7,
         name: "Creams",
-        icon: "assets/images/Categories/Category-7.jpg",
+        icon: "assets/images/Categories/cat-7.png",
         description: "description of the drug category",
         subcategories: [
           {
@@ -516,7 +523,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 8,
         name: "Supplements",
-        icon: "assets/images/Categories/Category-8.jpg",
+        icon: "assets/images/Categories/cat-8.png",
         description: "description of the drug category",
         subcategories: [],
         products: [
@@ -554,8 +561,8 @@ export class ProductMasterComponent implements OnInit {
 
       {
         id: 9,
-        name: "Painkillers/Analgesics",
-        icon: "assets/images/Categories/Category-9.webp",
+        name: "Painkillers / Analgesics",
+        icon: "assets/images/Categories/cat-9.png",
         description: "description of the drug category",
         subcategories: [],
         products: [
@@ -575,7 +582,7 @@ export class ProductMasterComponent implements OnInit {
       {
         id: 10,
         name: "Mouthwashes",
-        icon: "assets/images/Categories/Category-10.jpg",
+        icon: "assets/images/Categories/cat-10.png",
         description: "description of the drug category",
         subcategories: [],
         products: [
@@ -594,18 +601,43 @@ export class ProductMasterComponent implements OnInit {
   }
 
   handleCategorySelect(category: ICategory) {
-    debugger;
     this.filteredProducts = category.products;
-    
+
   }
 
   handleSubCategorySelected(subCategory: ISubCategory) {
-    debugger;
     this.filteredProducts = subCategory.products;
   }
 
 
+  get paginatedCategories() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.categories.slice(startIndex, endIndex);
+  }
 
+  changePage(page: number) {
+    this.currentPage = page;
+  }
+
+  totalPages() {
+    return Math.ceil(this.categories.length / this.itemsPerPage);
+  }
+
+  get paginatedProducts() {
+    const startIndex = (this.currentPageProducts - 1) * this.itemsPerPageProducts;
+    const endIndex = startIndex + this.itemsPerPageProducts;
+    return this.filteredProducts.slice(startIndex, endIndex);
+  }
+
+
+  changePageProducts(page: number) {
+    this.currentPageProducts = page;
+  }
+
+  totalPagesProducts() {
+    return Math.ceil(this.filteredProducts.length / this.itemsPerPageProducts);
+  }
 
 
 

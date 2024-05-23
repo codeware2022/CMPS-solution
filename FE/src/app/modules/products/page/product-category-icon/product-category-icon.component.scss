@@ -1,65 +1,41 @@
 .icon-button {
     position: relative;
     display: inline-block;
+    text-align: center;
 
     img {
-        width: 50px;
-        /* Adjust the size as needed */
-        height: 50px;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
         border-radius: 50%;
-        /* This makes the image circular */
         object-fit: cover;
-        border: 2px solid #000;
+        border: 2px solid rgb(79, 129, 79);
     }
 
-    .tooltip {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #110707;
-        text-align: center;
+    .category-name-box {
+        margin-top: 5px;
+        background-color: rgb(79, 129, 79);
+        color: white;
+        font-size: 0.75em;
+        width: 100px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 5px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        /* Position the tooltip above the icon */
-        left: 50%;
-        margin-left: -60px;
-        /* Center the tooltip */
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .tooltip::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        /* Arrow will be below the tooltip */
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
-
-    .icon-button:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
     }
 
     .dropdown-menu {
         display: none;
         position: absolute;
         top: 100%;
-        /* Adjust to place dropdown correctly */
         left: 0;
         background-color: white;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 16px rgb(79, 129, 79);
         z-index: 1;
         font-size: small;
-        min-width: 250px;
+        color: rgb(79, 129, 79);
+        min-width: 200px;
 
         ul {
             list-style: none;
@@ -84,7 +60,6 @@
 
 .dropdown-icon-image {
     width: 25px !important;
-    /* Adjust the size as needed */
     height: 25px !important;
     cursor: pointer;
 }
