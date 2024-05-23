@@ -21,6 +21,8 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
 import { NotificationComponent } from './components/modals/notification/notification.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { TooltipComponent } from './components/modals/tooltip/tooltip.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -32,7 +34,9 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     FilterPipe,
     ValidationMessagesComponent,
     NotificationComponent,
-    DropdownComponent
+    DropdownComponent,
+    TooltipComponent,
+    ClickOutsideDirective
   ],
   imports: [
     CommonModule,
@@ -59,7 +63,9 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     HttpClientModule,
     ValidationMessagesComponent,
     NotificationComponent,
-    DropdownComponent
+    DropdownComponent,
+    TooltipComponent,
+    ClickOutsideDirective
   ],
 })
 export class SharedModule { }
