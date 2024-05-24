@@ -265,7 +265,7 @@ const NavigationItems = [
         type: 'item',
         icon: 'feather icon-book',
         classes: 'nav-item',
-        url: 'https://codedthemes.com/item/datta-able-angular/',
+        url: '',
         target: true,
         external: true,
       },
