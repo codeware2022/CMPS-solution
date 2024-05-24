@@ -10,6 +10,7 @@ import { AddProductComponent } from './page/add-product/add-product.component';
 import { ProductCardComponent } from './page/product-card/product-card.component';
 import { ProductDetailComponent } from './page/product-detail/product-detail.component';
 import { ProductCategoryIconComponent } from './page/product-category-icon/product-category-icon.component';
+import { ProductsComparisonComponent } from './page/products-comparison/products-comparison.component';
 
 
 
@@ -20,6 +21,7 @@ import { ProductCategoryIconComponent } from './page/product-category-icon/produ
     ProductCardComponent,
     ProductDetailComponent,
     ProductCategoryIconComponent,
+    ProductsComparisonComponent,
   ],
   imports: [
     CommonModule,
