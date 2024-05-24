@@ -48,7 +48,6 @@
   /* Adjust as needed */
 }
 
-
 .pagination-controls {
   display: flex;
   justify-content: center;
@@ -57,13 +56,15 @@
 
 .pagination-controls button {
   margin: 0 5px;
-  padding: 10px;
+  padding: 5px;
   border: 2px solid rgb(79, 129, 79);
   border-radius: 50%;
   background-color: white;
   color: black;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .pagination-controls button:hover {
@@ -86,9 +87,16 @@
 .card-item-product {
   width: 20%;
   //height: 10%;
-  /* Each card takes 50% of the container width */
+
   box-sizing: border-box;
-  /* Including padding and border in the width */
   padding: 2px;
-  /* Adjust as needed */
+}
+
+.page-container {
+  border: 2px solid rgb(79, 129, 79);
+  padding: 20px;
+}
+
+.margin{
+  margin-top: 20px;
 }

@@ -23,6 +23,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { TooltipComponent } from './components/modals/tooltip/tooltip.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -47,6 +48,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     NgbModule,
     NgScrollbarModule,
     HttpClientModule,
+    NgApexchartsModule,
     ModalModule.forRoot()
   ],
   exports: [
@@ -65,7 +67,8 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     NotificationComponent,
     DropdownComponent,
     TooltipComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    NgApexchartsModule
   ],
 })
 export class SharedModule { }

@@ -9,13 +9,13 @@ import { IProduct } from 'src/app/theme/shared/models/Item';
 })
 export class ProductCardComponent {
   @Input() item : IProduct;
-  @Output() cardClicked = new EventEmitter<any>();
+  @Output() productCardClicked = new EventEmitter<any>();
   isModalVisible = false;
 
   constructor(private router: Router) {}
 
   onCardClick() {
-    this.cardClicked.emit(this.item);
+    this.productCardClicked.emit(this.item);
   }
 
  

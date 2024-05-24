@@ -27,7 +27,6 @@ export class ProductCategoryIconComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.category);
   }
 
   onSubCategorySelect(item: ISubCategory) {
