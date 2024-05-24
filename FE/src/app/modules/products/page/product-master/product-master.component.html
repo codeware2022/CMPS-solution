@@ -30,3 +30,7 @@
     </button>
     <button (click)="changePageProducts(currentPageProducts + 1)" [disabled]="currentPageProducts === totalPagesProducts()">>></button>
 </div>
+<div>   
+   <a [routerLink]="['/home/products/comparison']" class="btn btn-link">Products Comparision
+  </a>
+</div>
