@@ -125,7 +125,6 @@ export class AddProductComponent {
   }
 
   onProductSelect($event: any) {
-    debugger;
     if ($event && !($event instanceof Event)) {
       const selectedProduct: any = $event;
       this.selectedProducts.push(selectedProduct);
@@ -192,7 +191,6 @@ export class AddProductComponent {
   }
 
   selectAll() {
-    debugger;
     let prodIds = this.productList.map(p => {
       return p.id
     })

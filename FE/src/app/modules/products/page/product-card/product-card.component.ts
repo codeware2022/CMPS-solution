@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/theme/shared/models/Item';
 
@@ -9,12 +9,13 @@ import { IProduct } from 'src/app/theme/shared/models/Item';
 })
 export class ProductCardComponent {
   @Input() item : IProduct;
+  @Output() productCardClicked = new EventEmitter<any>();
   isModalVisible = false;
 
   constructor(private router: Router) {}
 
-  productDetail(product: IProduct) {
-    this.router.navigate(['/home/detail'], { state: { data: product } });
+  onCardClick() {
+    this.productCardClicked.emit(this.item);
   }
 
  

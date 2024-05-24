@@ -12,9 +12,6 @@ export class TooltipComponent implements OnInit{
   @Input() visible: boolean = false;
 
   ngOnInit(): void {
-    console.log(this.top);
-    console.log(this.left);
-    debugger;
     
   }
 }

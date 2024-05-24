@@ -6,6 +6,7 @@ export interface IProduct{
     description: string;
     categoryId: number;
     subCategoryId: number;
+    competitorProducts: ICompetitorProduct[];
 }
 
 export interface ICategory{
@@ -24,4 +25,14 @@ export interface ISubCategory{
     description: string;
     categoryId: number;
     products: IProduct[];
+}
+
+export interface ICompetitorProduct{
+    id: number;
+    name: string;
+    price: number;
+    imageUrl: string;
+    description: string;
+    sales: any;
+    productId: number;
 }
