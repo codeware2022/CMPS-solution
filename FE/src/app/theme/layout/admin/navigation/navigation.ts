@@ -86,6 +86,7 @@ const NavigationItems = [
         id: 'products',
         title: 'Products',
         type: 'collapse',
+        type: 'collapse',
         url: '/home/products',
         icon: 'feather icon-home',
         children:[

@@ -5,6 +5,7 @@ import { ProductDetailComponent } from './page/product-detail/product-detail.com
 import { ProductsComparisonComponent } from './page/products-comparison/products-comparison.component';
 import { AddDosageFormComponent } from './page/add/add-dosage-form/add-dosage-form.component';
 import { AddIngredientComponent } from './page/add/add-ingredient/add-ingredient.component';
+import { AddProductComponent } from './page/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,8 @@ const routes: Routes = [
     component: ProductMasterComponent
   },
   {
-    path: 'detail',
-    component: ProductDetailComponent
+    path: 'new',
+    component: AddProductComponent
   },
   {
     path:'comparison',
