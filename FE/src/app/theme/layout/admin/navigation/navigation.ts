@@ -81,10 +81,24 @@ const NavigationItems = [
       {
         id: 'products',
         title: 'Products',
-        type: 'item',
+        type: 'collapse',
         url: '/home/products',
         icon: 'feather icon-home',
         classes: 'nav-item',
+        children: [
+          {
+            id: 'product-master',
+            title: 'Produt Master',
+            type: 'item',
+            url: '/home/products',
+          },
+          {
+            id: 'new-product',
+            title: 'New Product',
+            type: 'item',
+            url: '/home/products/new',
+          }
+        ]
       },
       {      
         id: 'other',

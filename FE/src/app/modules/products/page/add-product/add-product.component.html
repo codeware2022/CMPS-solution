@@ -1,110 +1,116 @@
 <div class="row">
-    <div class="col-sm-12">
-      <app-card cardTitle="Product Master" class="justify-content-center" [options]="false">
-        <form [formGroup]="productsForm" action="javascript:">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Category</label>
-                <input type="text" class="form-control" placeholder="Category" [formControl]="f['category']" />
-              </div>
-  
-  
-              <div class="form-group">
-                <label for="exampleSelect">Select Option</label>
-  
-                <select class="form-control" id="exampleSelect" [(ngModel)]="selectedCategory">
-                  <option value=""><input type="text" class="form-control" [formControl]="f['category']"
-                      placeholder="Search..."></option>
-                  <option *ngFor="let option of productCategoryList | filter: filterText" [ngValue]="option.id">{{
-                    option.name }}</option>
-                </select>
-              </div>
-  
-  
-              <app-typehead-input [formControl]="f['category']" [label]="'Product Category'"
-                [placeholder]="'Select Product Category'" [list]="productCategoryList" [labelField]="'name'"
-                [bindField]="'id'" [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false"
-                [isMultiple]="true" [selectableGroup]="true" (onTypeheadSelect)="onProductCategorySelect($event)">
-              </app-typehead-input>
-              <app-typehead-input [formControl]="f['productName']" [label]="'Product Name'"
-                [placeholder]="'Select Product Name'" [list]="productList" [labelField]="'name'" [bindField]="'id'"
-                [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false" [isMultiple]="true"
-                [selectableGroup]="true" (onTypeheadSelect)="onProductSelect($event)">
-              </app-typehead-input>
-              <app-typehead-input [formControl]="f['genericName']" [label]="'Generic Name'"
-                [placeholder]="'Select Generic Name'" [list]="genericNameList" [labelField]="'name'" [bindField]="'id'"
-                [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false" [isMultiple]="true"
-                [selectableGroup]="true" (onTypeheadSelect)="onGenericNameSelect($event)">
-              </app-typehead-input>
-              <app-typehead-input [formControl]="f['manufacturer']" [label]="'Manufacturer Name'"
-                [placeholder]="'Select Manufacturer Name'" [list]="genericNameList" [labelField]="'name'"
-                [bindField]="'id'" [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false"
-                [isMultiple]="true" [selectableGroup]="true" (onTypeheadSelect)="onGenericNameSelect($event)">
-              </app-typehead-input>
-              <app-typehead-input [formControl]="f['distributor']" [label]="'Local Agent / distributor'"
-                [placeholder]="'Select Distributor Name'" [list]="disdtributorList" [labelField]="'name'"
-                [bindField]="'id'" [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false"
-                [isMultiple]="true" [selectableGroup]="true" (onTypeheadSelect)="onDistributorSelect($event)">
-              </app-typehead-input>
-              <app-typehead-input [formControl]="f['ingredient']" [label]="'Active Ingredient'"
-                [placeholder]="'Select Distributor Name'" [list]="ingredientList" [labelField]="'name'" [bindField]="'id'"
-                [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false" [isMultiple]="true"
-                [selectableGroup]="true" (onTypeheadSelect)="onIngredientSelect($event)">
-              </app-typehead-input>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Composition Name</label>
-                <input type="text" [formControl]="f['composition']" class="form-control"
-                  placeholder="Composition Strength" />
-              </div>
-              <app-typehead-input [formControl]="f['freeissue']" [label]="'Gamma Bonus / Free Issue'"
-                [placeholder]="'Select Free Issue'" [list]="freeIssueList" [labelField]="'name'" [bindField]="'id'"
-                [addTag]="false" [customClasses]="typeheadCustomClasses" [clearable]="false" [isMultiple]="true"
-                [selectableGroup]="true" (onTypeheadSelect)="onFreeIssueSelect($event)">
-              </app-typehead-input>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Available / Not Available</label>
-                <select class="mb-3 form-control font-weight-bold text-muted" (select)="onAvailabilitySelect($event)">
-                  <option>Available</option>
-                  <option>Not Available</option>
-                </select>
-              </div>
+  <div class="col-sm-12">
+    <app-card
+      cardTitle="Product Master"
+      class="justify-content-center"
+      [options]="false"
+    >
+      <form [formGroup]="productsForm" action="javascript:">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-custom-input
+                label="Enter product name:"
+                placeholder="Product name"
+              >
+              </app-custom-input>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Market Leader</label>
-                <input type="text" [formControl]="f['marketLeader']" class="form-control" placeholder="Market Leader" />
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Market Share</label>
-                <input type="text" [formControl]="f['marketShare']" class="form-control" placeholder="Market Leader" />
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Any Other Information</label>
-                <textarea type="text" [formControl]="f['information']" class="form-control"
-                  placeholder="Information"></textarea>
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">SWOT</label>
-                <input type="text" [formControl]="f['strength']" class="form-control" placeholder="Strength/Weakness" />
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold text-muted small mb-0">Average Sales Qty</label>
-                <input type="text" [formControl]="f['avgSalesQty']" class="form-control"
-                  placeholder="Average Sales Qty" />
-              </div>
-              <div class="form-group"><label class="form-label" for="customFile">Uapload Photo</label>
-                <input type="file" class="form-control form-control-sm" id="customFile" [formControl]="f['photo']" />
-              </div>
-              <div class="form-group mt-3"><button class="btn btn-primary mb-4">Submit</button></div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="categories"
+                [searchItem]="'category'"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter generic name:"
+                placeholder="Generic name"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="manufacturerList"
+                [searchItem]="'manufacturer'"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-typeahead
+                [items]="disdtributorList"
+                [searchItem]="'distributor'"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Ingredient:"
+                placeholder="Ingredient"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Composition Name:"
+                placeholder="Composition Name"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Free Issues:"
+                placeholder="Free Issues"
+              >
+              </app-custom-input>
             </div>
           </div>
-  
-  
-  
-        </form>
-  
-      </app-card>
-    </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Market Leader:"
+                placeholder="Market Leader"
+              >
+              </app-custom-input>
+            </div>
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Market Share:"
+                placeholder="Market Share"
+              >
+              </app-custom-input>
+            </div>
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Other Information:"
+                placeholder="Other Info"
+              >
+              </app-custom-input>
+            </div>
+            <div class="form-group">
+              <app-custom-input label="Enter SWOT:" placeholder="SWOT">
+              </app-custom-input>
+            </div>
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Average Sales Qty:"
+                placeholder="Average Sales Qty"
+              >
+              </app-custom-input>
+            </div>
+            <div class="form-group">
+              <app-photo-upload></app-photo-upload>
+            </div>
+            <div class="form-group mt-3">
+              <button class="btn btn-primary mb-4">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </app-card>
   </div>
-  
+</div>

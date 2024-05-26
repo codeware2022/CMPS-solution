@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductMasterComponent } from './page/product-master/product-master.component';
 import { ProductDetailComponent } from './page/product-detail/product-detail.component';
 import { ProductsComparisonComponent } from './page/products-comparison/products-comparison.component';
+import { AddProductComponent } from './page/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,8 @@ const routes: Routes = [
     component: ProductMasterComponent
   },
   {
-    path: 'detail',
-    component: ProductDetailComponent
+    path: 'new',
+    component: AddProductComponent
   },
   {
     path:'comparison',
