@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IFormCustomClass } from 'src/app/data/schema/generic/form';
+import { ICategory } from 'src/app/theme/shared/models/Item';
+import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-add-product',
@@ -13,6 +15,8 @@ export class AddProductComponent {
   selectedAvailability: any;
   selectedCategory: string;
   filterText: string = '';
+  categories: ICategory[]= [];
+
   public productCategoryList = [
     { id: 1, name: "Pain relief" },
     { id: 2, name: "Respiratory and Allergies" },
@@ -80,11 +84,11 @@ export class AddProductComponent {
     input: 'text-break',
   };
 
-  constructor(public fromBuilder: FormBuilder) {
+  constructor(public fromBuilder: FormBuilder, private localStorageService: LocalStorageService) {
     this.initializeForm();
   }
   ngOnInit(): void {
-
+    this.categories = this.localStorageService.getObject('categories'); 
   }
 
   initializeForm() {
