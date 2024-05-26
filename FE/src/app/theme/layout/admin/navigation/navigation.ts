@@ -1,4 +1,8 @@
-import { Injectable } from '@angular/core';
+import { style } from '@angular/animations';
+import { ContentChild, Injectable, ViewChild, ViewChildren } from '@angular/core';
+import { url } from 'inspector';
+import { title } from 'process';
+
 
 export interface NavigationItem {
   id: string;
@@ -81,10 +85,48 @@ const NavigationItems = [
       {
         id: 'products',
         title: 'Products',
-        type: 'item',
+        type: 'collapse',
         url: '/home/products',
         icon: 'feather icon-home',
-        classes: 'nav-item',
+        children:[
+          {
+            id:'add',
+            title:'Add',
+            type:'collapse',    
+            class:'nav-item', 
+            children:[
+              {
+                id:'dosageform',
+                title:'Dosage Form',
+                type:'item',
+                url:'/home/products/dosageform',
+                classes: 'nav-item',                 
+              },
+              {
+                id:'ingredient',
+                title:'Ingredient',
+                type:'item',
+                url:'/home/products/ingredient',
+                classes: 'nav-item',                
+              },
+              {
+                id:'manufacturer',
+                title:'Manufacturer',
+                type:'item',
+                url:'/home/products/manufacturer',
+                class:'nav-item'
+              },
+              {
+                id:'measurementunits',
+                title:'Measurement Units',
+                type:'item',
+                url:'/home/products/measurementunits',
+                class:'nav-item'
+              }
+            ]
+
+          }
+        ]
       },
       {      
         id: 'other',
