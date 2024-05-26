@@ -15,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'new',
+    pathMatch:'full',
     component: AddProductComponent
   },
   {

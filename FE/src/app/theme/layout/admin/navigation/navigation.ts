@@ -1,7 +1,6 @@
 import { style } from '@angular/animations';
 import { ContentChild, Injectable, ViewChild, ViewChildren } from '@angular/core';
-import { url } from 'inspector';
-import { title } from 'process';
+
 
 
 export interface NavigationItem {
@@ -85,8 +84,7 @@ const NavigationItems = [
       {
         id: 'products',
         title: 'Products',
-        type: 'collapse',
-        type: 'collapse',
+        type: 'collapse',      
         url: '/home/products',
         icon: 'feather icon-home',
         children:[
@@ -96,6 +94,13 @@ const NavigationItems = [
             type:'collapse',    
             class:'nav-item', 
             children:[
+              {
+                id:'newproduct',
+                title: 'New Product',
+                type:'item',
+                url:'/home/products/new',
+                class:'nav-item'
+              },              
               {
                 id:'dosageform',
                 title:'Dosage Form',
@@ -125,8 +130,8 @@ const NavigationItems = [
                 class:'nav-item'
               }
             ]
-
-          }
+          },
+          
         ]
       },
       {      
