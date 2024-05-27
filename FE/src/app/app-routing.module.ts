@@ -19,11 +19,20 @@ const routes: Routes = [
         loadComponent: () => import('./demo/dashboard/dashboard.component'),
       },
       {
+        path:'our-product',
+        loadChildren:()=> import('./modules/our-products/our-products.module').then(
+          (m)=>m.OurProductsModule)
+      },
+      {
+        path:'competitor-product',
+        loadChildren:()=>import('./modules/competitor-product/competitor-product.module').then(
+          (m)=>m.CompetitorProductModule)
+      },
+      {
         path: 'team',
         loadChildren: () =>
           import('./modules/team/team.module').then(
-            (m) => m.TeamModule,
-          ),
+            (m) => m.TeamModule),
       },
       {
         path: 'other',

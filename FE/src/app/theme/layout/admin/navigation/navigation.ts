@@ -2,7 +2,6 @@ import { style } from '@angular/animations';
 import { ContentChild, Injectable, ViewChild, ViewChildren } from '@angular/core';
 
 
-
 export interface NavigationItem {
   id: string;
   title: string;
@@ -41,13 +40,57 @@ const NavigationItems = [
         type: 'item',
         url: '/home/dashboard',
         icon: 'feather icon-home',
-        classes: 'nav-item',
+        class: 'nav-item',
       },  
+      {
+        id:'ourproducts',
+        title:'Our Product',
+        type:'collapse',
+        icon:'feather icon-package',
+        class:'nav-item',
+        children:[
+          {
+            id:'add-our-product',
+            title:'Add Our Product',
+            type:'item',         
+            url: '/home/our-product/add',
+          },
+          {
+            id:'view-our-product',
+            title:'View Our Product',
+            type:'item',           
+            url: '/home/our-product/view',
+          }
+        ]
+      },
+      {
+        id:'competitor-product',
+        title:'Competitor Product',
+        type:'collapse',
+        icon:'feather icon-command',
+        class:'nav-item',
+        children:[
+          {
+            id:'add-competitor-product',
+            title:'Add Competitor Product',
+            type:'item',
+            class:'nav-item',
+            url:'/home/competitor-product/add'
+          },
+          {
+            id:'view-competitor-product',
+            title:'View Competitor Product',
+            type:'item',
+            class:'nav-item',
+            url:'/home/competitor-product/view'
+          }
+        ]
+      },
       {      
-        id: 'team',
+        id: 'team1',
         title: 'Team',
         type: 'collapse',
-        icon: 'feather icon-box',
+        icon: 'feather icon-users',
         children: [
               {
                 id: 'brandmanager',
@@ -95,50 +138,106 @@ const NavigationItems = [
             class:'nav-item', 
             children:[
               {
-                id:'newproduct',
-                title: 'New Product',
+                id:'therapeutic-category',
+                title:'Therapeutic Category',
                 type:'item',
-                url:'/home/products/new',
+                url:'/home/products/new-therapeutic-category',
+                class:'nav-item'
+              },
+              {
+                id:'sub-therapeutic-category',
+                title:'Sub Therapeutic Category',
+                type:'item',
+                url:'/home/products/Test',
+                class:'nav-item'
+              },                                   
+              {
+                id:'product-master-category',
+                title:'Product Master Category',
+                type:'item',
+                url:'/home/products/new-product-master-category',
+                class:'nav-item'
+              },
+              {
+                id:'product',
+                title: 'Product',
+                type:'item',
+                url:'/home/products/new-product',
                 class:'nav-item'
               },              
               {
                 id:'dosageform',
                 title:'Dosage Form',
                 type:'item',
-                url:'/home/products/dosageform',
+                url:'/home/products/new-dosage-form',
                 classes: 'nav-item',                 
               },
               {
                 id:'ingredient',
                 title:'Ingredient',
                 type:'item',
-                url:'/home/products/ingredient',
+                url:'/home/products/new-ingredient',
                 classes: 'nav-item',                
               },
               {
                 id:'manufacturer',
                 title:'Manufacturer',
                 type:'item',
-                url:'/home/products/manufacturer',
+                url:'/home/products/new-manufacturer',
                 class:'nav-item'
               },
               {
                 id:'measurementunits',
                 title:'Measurement Units',
                 type:'item',
-                url:'/home/products/measurementunits',
+                url:'/home/products/new-measurement-units',
+                class:'nav-item'
+              },
+              {
+                id:'product-generic',
+                title:'Product Generic',
+                type:'item',
+                url:'/home/products/new-product-generic',
                 class:'nav-item'
               }
             ]
           },
-          
+          {
+            id:'comparision',
+            title:'Comparision',
+            type:'collapse',
+            class:'nav-item',
+            children:[
+              {
+                id:'competitor',
+                title:'Competitor wise',
+                type:'item',
+                class:'nav-item',
+                url:'/home/products/competitor-wise',
+              },
+              {
+                id:'competitor',
+                title:'Genaric wise',
+                type:'item',
+                class:'nav-item',
+                url:'/home/products/new-therapeutic-category',
+              },
+              {
+                id:'competitor',
+                title:'Dosage Form wise',
+                type:'item',
+                class:'nav-item',
+                url:'/home/products/new-therapeutic-category',
+              }
+            ]
+          }
         ]
       },
       {      
         id: 'other',
         title: 'Other',
         type: 'collapse',
-        icon: 'feather icon-box',
+        icon: 'feather icon-grid',
         children: [
               {
                 id: 'distributor',

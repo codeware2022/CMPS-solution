@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CardModule } from 'src/app/theme/shared/components';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductMasterComponent } from './page/product-master/product-master.component';
-import { CardModule } from 'src/app/theme/shared/components';
 import { TypeheadInputComponent } from 'src/app/theme/shared/components/typehead-input/typehead-input.component';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { AddProductComponent } from './page/add-product/add-product.component';
@@ -18,6 +18,9 @@ import { AddProductGenericComponent } from './page/add/add-product-generic/add-p
 import { AddManufacturerComponent } from './page/add/add-manufacturer/add-manufacturer.component';
 import { AddIngredientComponent } from './page/add/add-ingredient/add-ingredient.component';
 import { AddMeasurementUnitsComponent } from './page/add/add-measurement-units/add-measurement-units.component';
+import { AddTherapeuticCategoryComponent } from './page/add/add-therapeutic-category/add-therapeutic-category.component';
+import { AddSubTherapeuticCategoryComponent } from './page/add/add-sub-therapeutic-category/add-sub-therapeutic-category.component';
+import { TestComponent } from './page/test/test.component';
 
 
 
@@ -36,12 +39,14 @@ import { AddMeasurementUnitsComponent } from './page/add/add-measurement-units/a
     AddManufacturerComponent,
     AddIngredientComponent,
     AddMeasurementUnitsComponent,
+    AddTherapeuticCategoryComponent,
+    AddSubTherapeuticCategoryComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     CardModule,
-
     SharedModule
   ]
 })
