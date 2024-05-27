@@ -85,280 +85,417 @@ const NavigationItems = [
             url:'/home/competitor-product/view'
           }
         ]
-      },
-      {      
-        id: 'team1',
-        title: 'Team',
-        type: 'collapse',
-        icon: 'feather icon-users',
-        children: [
-              {
-                id: 'brandmanager',
-                title: 'Brand Manager',
-                type: 'item',
-                url: '/home/team/brandmanager',
-              },
-              {
-                id: 'brandcoordinator',
-                title: 'Brand Coordinator',
-                type: 'item',
-                url: '/home/team/brandcoordinator',
-              },
-              {
-                id: 'medicalrep',
-                title: 'Medical Rep',
-                type: 'item',
-                url: '/home/team/medicalrep',
-              },
-              {
-                id: 'salesrep',
-                title: 'Sales Rep',
-                type: 'item',
-                url: '/home/team/salesrep',
-              },
-              {
-                id: 'marketingadmin',
-                title: 'Marketing Admin',
-                type: 'item',
-                url: '/home/team/marketingadmin',
-              } 
-        ],
-      },
-      {
-        id: 'products',
-        title: 'Products',
-        type: 'collapse',      
-        url: '/home/products',
-        icon: 'feather icon-home',
-        children:[
-          {
-            id:'add',
-            title:'Add',
-            type:'collapse',    
-            class:'nav-item', 
+      }
+    ],
+  }, 
+  {        
+      id: 'product-comparison',
+      title: 'Product Comparison',
+      type: 'group',      
+      url: '/home/products',
+      icon: 'feather icon-home',
+      children:[          
+        {
+          id:'comparison',
+          title:'Product Comparison',
+          type:'collapse',
+          class:'nav-item',
+          icon:'feather icon-minimize-2',
+          children:[
+            {
+              id:'competitor',
+              title:'Competitor wise',
+              type:'item',
+              class:'nav-item',
+              url:'/home/products/product-master',
+            },
+            {
+              id:'competitor',
+              title:'Genaric wise',
+              type:'item',
+              class:'nav-item',
+              url:'/home/products/new-therapeutic-category',
+            },
+            {
+              id:'competitor',
+              title:'Dosage Form wise',
+              type:'item',
+              class:'nav-item',
+              url:'/home/products/new-therapeutic-category',
+            }
+          ]
+        }
+      ]    
+  }, 
+  {
+      id:'categories',
+      title:'Base Informations & Categories',
+      type:'group',    
+      children:[
+        {
+            id:'therapeutic',
+            title:'Therapeutic',
+            type:'collapse',
+            icon:'feather icon-list',
             children:[
               {
-                id:'therapeutic-category',
-                title:'Therapeutic Category',
+                id:'add-therapeutic',
+                title:'Add Therapeutic',
                 type:'item',
-                url:'/home/products/new-therapeutic-category',
-                class:'nav-item'
+                url:'/home/categories/add-therapeutic'
               },
               {
-                id:'sub-therapeutic-category',
-                title:'Sub Therapeutic Category',
+                id:'view-therapeutic',
+                title:'View Therapeutic',
                 type:'item',
-                url:'/home/products/Test',
-                class:'nav-item'
-              },                                   
-              {
-                id:'product-master-category',
-                title:'Product Master Category',
-                type:'item',
-                url:'/home/products/new-product-master-category',
-                class:'nav-item'
-              },
-              {
-                id:'product',
-                title: 'Product',
-                type:'item',
-                url:'/home/products/new-product',
-                class:'nav-item'
-              },              
-              {
-                id:'dosageform',
-                title:'Dosage Form',
-                type:'item',
-                url:'/home/products/new-dosage-form',
-                classes: 'nav-item',                 
-              },
-              {
-                id:'ingredient',
-                title:'Ingredient',
-                type:'item',
-                url:'/home/products/new-ingredient',
-                classes: 'nav-item',                
-              },
-              {
-                id:'manufacturer',
-                title:'Manufacturer',
-                type:'item',
-                url:'/home/products/new-manufacturer',
-                class:'nav-item'
-              },
-              {
-                id:'measurementunits',
-                title:'Measurement Units',
-                type:'item',
-                url:'/home/products/new-measurement-units',
-                class:'nav-item'
-              },
-              {
-                id:'product-generic',
-                title:'Product Generic',
-                type:'item',
-                url:'/home/products/new-product-generic',
-                class:'nav-item'
+                url:'/home/categories/view-therapeutic'
               }
-            ]
-          },
-          {
-            id:'comparision',
-            title:'Comparision',
+            ]        
+        },       
+        {
+            id:'sub-therapeutic',
+            title:'Sub Therapeutic',
             type:'collapse',
             class:'nav-item',
+            icon:'feather icon-share-2',
             children:[
               {
-                id:'competitor',
-                title:'Competitor wise',
+                id:'add-sub-therapeutic',
+                title:'Add Sub Therapeutic',
                 type:'item',
-                class:'nav-item',
-                url:'/home/products/competitor-wise',
+                url:'/home/categories/add-sub-therapeutic'
               },
               {
-                id:'competitor',
-                title:'Genaric wise',
+                id:'view-sub-therapeutic',
+                title:'View Sub Therapeutic',
                 type:'item',
-                class:'nav-item',
-                url:'/home/products/new-therapeutic-category',
+                url:'/home/categories/view-sub-therapeutic'
+              }
+            ]           
+        },
+        {
+          id:'product-master',
+          title:'Product Master',
+          type:'collapse',
+          class:'nav-item', 
+          icon:'feather icon-cpu',       
+          children:[
+            {
+              id:'add-product-master',
+              title:'Add Product Master',
+              type:'item',
+              url:'/home/categories/add-product-master'
+            },
+            {
+              id:'view-product-master',
+              title:'View Product Master',
+              type:'item',
+              url:'/home/categories/view-product-master'
+            }         
+          ]
+        },
+        {
+        id:'dosage-form',
+        title:'Dosage Form',
+        type:'collapse',
+        class:'nav-item',   
+        icon:'feather icon-pocket',       
+        children:[
+          {
+            id:'add-dosage-form',
+            title:'Add Dosage Form',
+            type:'item',
+            url:'/home/categories/add-dosage-form'
+          },
+          {
+            id:'view-dosage-form',
+            title:'View Dosage Form',
+            type:'item',
+            url:'/home/categories/view-dosage-form'
+          }         
+        ]
+        },
+        {
+          id:'Measurement-Units',
+          title:'Measurement Units',
+          type:'collapse',
+          icon:'feather icon-aperture',
+          class:'nav-item',
+          children:[
+            {             
+              id:'add-measurement-units',
+              title:'Add Measurement Units',
+              type:'item',
+              url:'/home/categories/add-measurement-units'
+            },
+            {
+              id:'View-measurement-units',
+              title:'View Measurement Units',
+              type:'item',
+              url:'/home/categories/view-measurement-units'
+            }
+            
+          ]
+        },
+        {
+          id:'ingredient',
+          title:'Ingredient',
+          type:'collapse',
+          icon:'feather icon-sunset',
+          class:'nav-item',
+          children:[
+            {             
+              id:'add-ingredient',
+              title:'Add Ingredient',
+              type:'item',
+              url:'/home/categories/add-ingredient'
+            },
+            {
+              id:'view-ingredient',
+              title:'View Ingredient',
+              type:'item',
+              url:'/home/categories/view-ingredient'
+            }            
+          ]
+        },
+        {
+          id:'generic',
+          title:'Generic',
+          type:'collapse',
+          icon:'feather icon-sun',
+          class:'nav-item',
+          children:[
+            {             
+              id:'add-generic',
+              title:'Add Generic',
+              type:'item',
+              url:'/home/categories/add-generic'
+            },
+            {
+              id:'view-generic',
+              title:'View Generic',
+              type:'item',
+              url:'/home/categories/view-generic'
+            }            
+          ]
+        },
+        {
+          id:'manufacturer',
+          title:'Manufacturer',
+          type:'collapse',
+          icon:'feather icon-link-2',
+          class:'nav-item',
+          children:[
+            {             
+              id:'add-manufacturer',
+              title:'Add Manufacturer',
+              type:'item',
+              url:'/home/categories/add-manufacturer'
+            },
+            {
+              id:'view-manufacturer',
+              title:'View Manufacturer',
+              type:'item',
+              url:'/home/categories/view-manufacturer'
+            }            
+          ]
+        }
+    ]    
+  },  
+  {      
+    id: 'team-combination',
+    title: 'Team Combination',
+    type: 'group',   
+    children: [
+          {
+            id: 'brandmanager',
+            title: 'Brand Manager',
+            type: 'collapse',
+            icon:'feather icon-users',
+            children:[
+              {
+              id: 'add-brandmanager',
+              title: 'Brand Manager',
+              type: 'item',
+              url: '/home/team/add-brandmanager',
+            },
+            {
+              id: 'view-brandmanager',
+              title: 'View Manager',
+              type: 'item',
+              url: '/home/team/view-brandmanager',
+            }
+          ]
+          },
+          {
+            id: 'brandcoordinator',
+            title: 'Brand Coordinator',
+            type: 'collapse',
+            icon:'feather icon-user-x',
+            children:[
+            {
+                id: 'add-brandcoordinator',
+                title: 'Add Brand Coordinator',
+                type: 'item',   
+                url:'/home/team/add-brandcoordinator'             
+            },
+            {
+              id: 'view-brandcoordinator',
+              title: 'View Brand Coordinator',
+              type: 'item',   
+              url:'/home/team/view-brandcoordinator'   
+            }
+          ]
+          },
+          {
+            id: 'medicalrep',
+            title: 'Medical Rep',
+            type: 'collapse',
+            icon:'feather icon-user-check',
+            children:[
+              {
+                id: 'add-medicalrep',
+                title: 'Add Medicalrep',
+                type: 'item',
+                url:'/home/team/add-medicalrep' 
               },
               {
-                id:'competitor',
-                title:'Dosage Form wise',
-                type:'item',
-                class:'nav-item',
-                url:'/home/products/new-therapeutic-category',
+                id: 'view-medicalrep',
+                title: 'View Medicalrep',
+                type: 'item',
+                url:'/home/team/view-medicalrep' 
               }
             ]
-          }
-        ]
-      },
-      {      
-        id: 'other',
-        title: 'Other',
-        type: 'collapse',
-        icon: 'feather icon-grid',
-        children: [
+          },
+          {
+            id: 'salesrep',
+            title: 'Sales Rep',
+            type: 'collapse',
+            icon:'feather icon-user-plus',
+            children:[
               {
-                id: 'distributor',
-                title: 'Distributor',
+                id: 'add-salesrep',
+                title: 'Add Salesrep',
                 type: 'item',
-                url: '/home/other/distributor',
+                url:'/home/team/add-salesrep' 
               },
               {
-                id: 'area',
-                title: 'Area',
+                id: 'view-salesrep',
+                title: 'View Salesrep',
                 type: 'item',
-                url: '/home/other/area',
-              },
-              {
-                id: 'range',
-                title: 'Range',
-                type: 'item',
-                url: '/home/other/range',
-              },
-              {
-                id: 'zone',
-                title: 'Zone',
-                type: 'item',
-                url: '/home/other/zone',
+                url:'/home/team/view-salesrep' 
               }
-        ],
-      },
-    ],
-  },
-  {
-    id: 'ui-element',
-    title: 'UI ELEMENT',
-    type: 'group',
-    icon: 'icon-ui',
+            ]
+          },
+          {
+            id: 'marketingadmin',
+            title: 'Marketing Admin',
+            type: 'collapse',
+            icon:'feather icon-user',
+            children:[
+              {
+                id: 'add-marketing-admin',
+                title: 'Add Marketing Admin',
+                type: 'item',
+                url: '/home/team/add-marketing-admin',
+              },
+              {
+                id: 'view-marketing-admin',
+                title: 'View Marketing Admin',
+                type: 'item',
+                url: '/home/team/view-marketing-admin',
+              }
+            ]
+          } 
+        ]
+  },      
+  {      
+    id: 'territory-management',
+    title: 'Territory Management',
+    type: 'group',  
     children: [
-      {
-        id: 'basic',
-        title: 'Component',
-        type: 'collapse',
-        icon: 'feather icon-box',
-        children: [
-          {
-            id: 'button',
-            title: 'Button',
-            type: 'item',
-            url: '/basic/button',
-          },
-          {
-            id: 'badges',
-            title: 'Badges',
-            type: 'item',
-            url: '/basic/badges',
-          },
-          {
-            id: 'breadcrumb-pagination',
-            title: 'Breadcrumb & Pagination',
-            type: 'item',
-            url: '/basic/breadcrumb-paging',
-          },
-          {
-            id: 'collapse',
-            title: 'Collapse',
-            type: 'item',
-            url: '/basic/collapse',
-          },
-          {
-            id: 'tabs-pills',
-            title: 'Tabs & Pills',
-            type: 'item',
-            url: '/basic/tabs-pills',
-          },
-          {
-            id: 'typography',
-            title: 'Typography',
-            type: 'item',
-            url: '/basic/typography',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'forms',
-    title: 'Forms & Tables',
-    type: 'group',
-    icon: 'icon-group',
-    children: [
-      {
-        id: 'forms-element',
-        title: 'Form Elements',
-        type: 'item',
-        url: '/forms/basic',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text',
-      },
-      {
-        id: 'tables',
-        title: 'Tables',
-        type: 'item',
-        url: '/tables/bootstrap',
-        classes: 'nav-item',
-        icon: 'feather icon-server',
-      },
-    ],
-  },
-  {
-    id: 'chart-maps',
-    title: 'Chart',
-    type: 'group',
-    icon: 'icon-charts',
-    children: [
-      {
-        id: 'apexChart',
-        title: 'ApexChart',
-        type: 'item',
-        url: 'apexchart',
-        classes: 'nav-item',
-        icon: 'feather icon-pie-chart',
-      },
-    ],
-  },
+        {
+          id: 'distributor',
+          title: 'Distributor',
+          type: 'collapse',
+          icon: 'feather icon-shopping-cart',   
+          children:[
+            {
+              id:'add-distributor',
+              title:'Add Distributor',
+              type:'item',
+              url: '/home/territories/add-distributor'              
+            },
+            {
+              id:'view-distributor',
+              title:'View Distributor',
+              type:'item',
+              url: '/home/territories/view-distributor'              
+            }
+          ]       
+        },
+        {
+          id: 'area',
+          title: 'Area',
+          type: 'collapse',
+          icon: 'feather icon-map-pin',
+          children:[
+            {
+              id:'add-area',
+              title:'Add Area',
+              type:'item',
+              url:'/home/territories/add-area'
+            },
+            {
+              id:'view-area',
+              title:'View Area',
+              type:'item',
+              url:'/home/territories/view-area'
+            }
+          ]         
+        },
+        {
+          id: 'range',
+          title: 'Range',
+          type: 'collapse',
+          icon: 'feather icon-loader',  
+          children:[
+            {
+              id:'add-range',
+              title:'Add Range',
+              type:'item',
+              url:'/home/territories/add-range'
+            },
+            {
+              id:'view-range',
+              title:'View Range',
+              type:'item',
+              url:'/home/territories/view-range'
+            }
+          ]
+        },
+        {
+          id: 'zone',
+          title: 'Zone',
+          type: 'collapse',
+          icon: 'feather icon-globe',  
+          children:[
+            {
+              id:'add-zone',
+              title:'Add Zone',
+              type:'item',
+              url:'/home/territories/add-zone'
+            },
+            {
+              id:'view-zone',
+              title:'View Zone',
+              type:'item',
+              url:'/home/territories/view-zone'
+            }
+          ]
+        }
+    ]
+  },  
   {
     id: 'pages',
     title: 'Pages',
@@ -388,36 +525,9 @@ const NavigationItems = [
             breadcrumbs: false,
           },
         ],
-      },
-      {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'disabled-menu',
-        title: 'Disabled Menu',
-        type: 'item',
-        url: 'javascript:',
-        classes: 'nav-item disabled',
-        icon: 'feather icon-power',
-        external: true,
-      },
-      {
-        id: 'buy_now',
-        title: 'Buy Now',
-        type: 'item',
-        icon: 'feather icon-book',
-        classes: 'nav-item',
-        url: '',
-        target: true,
-        external: true,
-      },
-    ],
-  },
+      }      
+    ]
+  }
 ];
 
 @Injectable()

@@ -33,56 +33,24 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/team/team.module').then(
             (m) => m.TeamModule),
-      },
+      },      
       {
-        path: 'other',
-        loadChildren: () =>
-          import('./modules/other/other.module').then(
-            (m) => m.OtherModule,
-          ),
+        path:'territories',
+        loadChildren:()=>import('./modules/territories/territories.module').then(
+          (m)=>m.TerritoriesModule)
       },
       {
         path: 'products',
-        loadChildren: () => import('./modules/products/products.module').then((m) => m.ProductsModule),
+        loadChildren: () => import('./modules/products/products.module').then(
+          (m) => m.ProductsModule),
 
       },
-
       {
         path: 'categories',
-        loadChildren: () => import('./modules/categories/categories.module').then((m) => m.CategoriesModule),
+        loadChildren: () => import('./modules/categories/categories.module').then(
+          (m) => m.CategoriesModule),
 
-      },
-      {
-        path: 'basic',
-        loadChildren: () =>
-          import('./demo/ui-elements/ui-basic/ui-basic.module').then(
-            (m) => m.UiBasicModule,
-          ),
-      },
-      {
-        path: 'forms',
-        loadChildren: () =>
-          import('./demo/pages/form-elements/form-elements.module').then(
-            (m) => m.FormElementsModule,
-          ),
-      },
-      {
-        path: 'tables',
-        loadChildren: () =>
-          import('./demo/pages/tables/tables.module').then(
-            (m) => m.TablesModule,
-          ),
-      },
-      {
-        path: 'apexchart',
-        loadComponent: () =>
-          import('./demo/chart/apex-chart/apex-chart.component'),
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () =>
-          import('./demo/extra/sample-page/sample-page.component'),
-      },
+      }            
     ],
   },
   {
