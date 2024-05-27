@@ -1,0 +1,17 @@
+<div class="photo-upload-container">
+  <label for="photo-upload-input" class="photo-upload-label"
+    >Upload a photo:</label
+  >
+  <input
+    type="file"
+    id="photo-upload-input"
+    (change)="onFileSelected($event)"
+    class="photo-upload-input"
+  />
+  <div *ngIf="previewUrl" class="photo-preview">
+    <img [src]="previewUrl" alt="Photo Preview" class="preview-img" />
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

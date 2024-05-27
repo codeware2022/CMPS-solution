@@ -1,0 +1,26 @@
+<div class="typeahead-container">
+  <label for="typeahead-input" class="typeahead-label"
+    >Search for a {{ searchItem }}:</label
+  >
+  <div class="input-wrapper">
+    <input
+      id="typeahead-input"
+      type="text"
+      [(ngModel)]="query"
+      (input)="onSearch()"
+      placeholder="Search..."
+      class="typeahead-input"
+    />
+    <span class="dropdown-icon" (click)="toggleList()">&#9662;</span>
+  </div>
+  <ul *ngIf="showList && filteredItems.length" class="typeahead-list">
+    <li
+      *ngFor="let item of filteredItems; let i = index"
+      (click)="selectItem(item)"
+      [class.active]="i === selectedIndex"
+      (mouseover)="selectedIndex = i"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+</div>

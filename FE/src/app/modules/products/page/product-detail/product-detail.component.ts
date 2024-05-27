@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IItem } from 'src/app/theme/shared/models/Item';
+import { IProduct } from 'src/app/theme/shared/models/Item';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,7 +8,7 @@ import { IItem } from 'src/app/theme/shared/models/Item';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit{
-  productData: IItem;
+  productData: IProduct;
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {

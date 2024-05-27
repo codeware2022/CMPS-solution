@@ -8,66 +8,90 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { ICategory, IItem } from 'src/app/theme/shared/models/Item';
+import {
+  ICategory,
+  ICompetitorProduct,
+  IProduct,
+  ISubCategory,
+} from 'src/app/theme/shared/models/Item';
+import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-product-master',
   templateUrl: './product-master.component.html',
-  styleUrls: ['./product-master.component.scss']
+  styleUrls: ['./product-master.component.scss'],
 })
 export class ProductMasterComponent implements OnInit {
-  products : IItem[] = [];
-  categoryProducts: IItem[] = [];
-  
-  constructor() {
-    
-  }
+  products: IProduct[] = [];
+  filteredProducts: IProduct[] = [];
+  categories: ICategory[] = [];
+  subCategoriesAll: ISubCategory[] = [];
+  subCategories: ISubCategory[] = [];
+  competitorProducts: ICompetitorProduct[] = [];
+
+  currentPage = 1;
+  itemsPerPage = 8;
+
+  currentPageProducts = 1;
+  itemsPerPageProducts = 5;
+
+  visibleDropdownIndex: number | null = null;
+
+  constructor(private localStorageService: LocalStorageService) {}
   ngOnInit(): void {
-
-    this.products = [
-      {
-        id: 1,
-        name: "Paracitamal",
-        price: 14,
-        imageUrl: "assets/images/products/Panadol.jpg",
-        description: "",
-        categoryId: 1
-      },
-      {
-        id: 2,
-        name: "Piriton Syrup",
-        price: 15,
-        imageUrl: "assets/images/products/Piriton-Syrup.jpg",
-        description: "",
-        categoryId: 2
-      },
-      {
-        id: 3,
-        name: "Famotidine",
-        price: 20,
-        imageUrl: "assets/images/products/Famotidine.jpg",
-        description: "",
-        categoryId: 5
-      },
-      {
-        id: 4,
-        name: "Domperidone",
-        price: 25,
-        imageUrl: "assets/images/products/Domperidone.jpg",
-        description: "",
-        categoryId: 5
-      },
-      {
-        id: 5,
-        name: "Brufen",
-        price: 13,
-        imageUrl: "assets/images/products/brufen.png",
-        description: "",
-        categoryId: 3
-      },
-    ];
+    this.categories = this.localStorageService.getObject('categories'); 
   }
-  
 
-  
+  handleCategorySelect(category: ICategory) {
+    this.filteredProducts = category.products;
+    this.competitorProducts = [];
+  }
+
+  handleSubCategorySelected(subCategory: ISubCategory) {
+    this.filteredProducts = subCategory.products;
+    this.competitorProducts = [];
+  }
+
+  handleProductCardClicked(product: IProduct) {
+    this.competitorProducts = product.competitorProducts;
+  }
+
+  get paginatedCategories() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.categories.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
+  }
+
+  totalPages() {
+    return Math.ceil(this.categories.length / this.itemsPerPage);
+  }
+
+  get paginatedProducts() {
+    const startIndex =
+      (this.currentPageProducts - 1) * this.itemsPerPageProducts;
+    const endIndex = startIndex + this.itemsPerPageProducts;
+    return this.filteredProducts.slice(startIndex, endIndex);
+  }
+
+  changePageProducts(page: number) {
+    this.currentPageProducts = page;
+  }
+
+  totalPagesProducts() {
+    return Math.ceil(this.filteredProducts.length / this.itemsPerPageProducts);
+  }
+
+  showDropdown(index: number) {
+    this.visibleDropdownIndex = index;
+  }
+
+  hideDropdown(index: number) {
+    if (this.visibleDropdownIndex === index) {
+      this.visibleDropdownIndex = null;
+    }
+  }
 }

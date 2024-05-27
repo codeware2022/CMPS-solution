@@ -18,12 +18,27 @@ const routes: Routes = [
         path: 'dashboard',
         loadComponent: () => import('./demo/dashboard/dashboard.component'),
       },
-
       {
-        path: 'rep',
+        path:'our-product',
+        loadChildren:()=> import('./modules/our-products/our-products.module').then(
+          (m)=>m.OurProductsModule)
+      },
+      {
+        path:'competitor-product',
+        loadChildren:()=>import('./modules/competitor-product/competitor-product.module').then(
+          (m)=>m.CompetitorProductModule)
+      },
+      {
+        path: 'team',
         loadChildren: () =>
-          import('./modules/rep/rep.module').then(
-            (m) => m.RepModule,
+          import('./modules/team/team.module').then(
+            (m) => m.TeamModule),
+      },
+      {
+        path: 'other',
+        loadChildren: () =>
+          import('./modules/other/other.module').then(
+            (m) => m.OtherModule,
           ),
       },
       {

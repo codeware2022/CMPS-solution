@@ -20,6 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { NotificationComponent } from './components/modals/notification/notification.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { TooltipComponent } from './components/modals/tooltip/tooltip.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 
 @NgModule({
   declarations: [SpinnerComponent,
@@ -30,7 +37,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NgSelectInputLabelTemplateDirective,
     FilterPipe,
     ValidationMessagesComponent,
-    NotificationComponent
+    NotificationComponent,
+    DropdownComponent,
+    TooltipComponent,
+    ClickOutsideDirective,
+    TypeaheadComponent,
+    CustomInputComponent,
+    PhotoUploadComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +54,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NgbModule,
     NgScrollbarModule,
     HttpClientModule,
+    NgApexchartsModule,
     ModalModule.forRoot()
   ],
   exports: [
@@ -56,7 +70,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FilterPipe,
     HttpClientModule,
     ValidationMessagesComponent,
-    NotificationComponent
+    NotificationComponent,
+    DropdownComponent,
+    TooltipComponent,
+    ClickOutsideDirective,
+    NgApexchartsModule,
+    TypeaheadComponent,
+    CustomInputComponent,
+    PhotoUploadComponent
   ],
 })
 export class SharedModule { }
