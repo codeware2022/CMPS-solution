@@ -12,6 +12,7 @@
               <app-custom-input
                 label="Enter product name:"
                 placeholder="Product name"
+                (valueChange)="onProductNameChange($event)"
               >
               </app-custom-input>
             </div>
@@ -19,29 +20,41 @@
             <div class="form-group">
               <app-typeahead
                 [items]="categories"
-                [searchItem]="'category'"
+                searchItem="Category"
+                (selected)="onCategorySelected($event)"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group" *ngIf="subcategories && subcategories.length > 0">
+              <app-typeahead
+                [items]="subcategories"
+                searchItem="Sub Category"
+                (selected)="onSubCategorySelected($event)"
+              ></app-typeahead>
+            </div>
+
+            <div class="form-group" *ngIf="productList && productList.length > 0">
+              <app-typeahead
+                [items]="productList"
+                searchItem="Product"
+                (selected)="onProductSelected($event)"
               ></app-typeahead>
             </div>
 
             <div class="form-group">
-              <app-custom-input
-                label="Enter generic name:"
-                placeholder="Generic name"
-              >
-              </app-custom-input>
+              <app-typeahead
+                [items]="genericNameList"
+                searchItem="Generic Name"
+                (selected)="onGenericNameSelected($event)"
+              ></app-typeahead>
             </div>
 
             <div class="form-group">
               <app-typeahead
+                
                 [items]="manufacturerList"
-                [searchItem]="'manufacturer'"
-              ></app-typeahead>
-            </div>
-
-            <div class="form-group">
-              <app-typeahead
-                [items]="disdtributorList"
-                [searchItem]="'distributor'"
+                searchItem="Manufacturer"
+                (selected)="onManufacturerSelected($event)"
               ></app-typeahead>
             </div>
 
@@ -105,8 +118,9 @@
             <div class="form-group">
               <app-photo-upload></app-photo-upload>
             </div>
-            <div class="form-group mt-3">
-              <button class="btn btn-primary mb-4">Submit</button>
+            <div class="form-group mt-3 ml-2">
+              <button class="btn btn-primary ml-3">Submit</button>
+              <button class="btn btn-danger">Reset</button>
             </div>
           </div>
         </div>
