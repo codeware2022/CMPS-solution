@@ -1,7 +1,5 @@
-<div class="typeahead-container">
-  <label for="typeahead-input" class="typeahead-label"
-    >Search for a {{ searchItem }}:</label
-  >
+<div class="form-group mt-2">
+  <label for="typeahead-input" class="form-label">Search for a {{ searchItem }}:</label>
   <div class="input-wrapper">
     <input
       id="typeahead-input"
@@ -9,7 +7,7 @@
       [(ngModel)]="query"
       (input)="onSearch()"
       placeholder="Search..."
-      class="typeahead-input"
+      class="form-control"
     />
     <span class="dropdown-icon" (click)="toggleList()">&#9662;</span>
   </div>
