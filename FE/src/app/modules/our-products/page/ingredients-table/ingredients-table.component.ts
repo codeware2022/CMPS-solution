@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ingredients-table',
   templateUrl: './ingredients-table.component.html',
   styleUrls: ['./ingredients-table.component.scss'],
 })
-export class IngredientsTableComponent implements OnInit{
+export class IngredientsTableComponent implements OnInit {
   items = [{ ingredient: '', composition: '' }];
+  @Output() itemAdded = new EventEmitter<string>();
 
   paginatedItems = [];
   page = 1;
@@ -19,6 +20,8 @@ export class IngredientsTableComponent implements OnInit{
 
   addItem() {
     this.items.push({ ingredient: '', composition: '' });
+    debugger;
+    this.itemAdded.emit(JSON.stringify(this.items));
     this.updatePagination();
   }
 

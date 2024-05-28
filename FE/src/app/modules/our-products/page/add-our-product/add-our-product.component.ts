@@ -78,11 +78,7 @@ export class AddOurProductComponent {
     { id: 1, name: 'Available' },
     { id: 2, name: 'Not Available' },
   ];
-  typeheadCustomClasses: IFormCustomClass = {
-    formGroup: 'form-group',
-    label: 'font-weight-bold text-muted small mb-0',
-    input: 'text-break',
-  };
+         
 
   constructor(
     public fromBuilder: FormBuilder,
