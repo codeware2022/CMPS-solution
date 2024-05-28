@@ -20,7 +20,6 @@ export class IngredientsTableComponent implements OnInit {
 
   addItem() {
     this.items.push({ ingredient: '', composition: '' });
-    debugger;
     this.itemAdded.emit(JSON.stringify(this.items));
     this.updatePagination();
   }
