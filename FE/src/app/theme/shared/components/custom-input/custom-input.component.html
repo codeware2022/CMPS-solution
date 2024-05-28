@@ -3,9 +3,13 @@
   <input
     [id]="inputId"
     type="text"
-    [(ngModel)]="value"
+    [formControl]="control"
     (input)="onInput()"
     [placeholder]="placeholder"
     class="form-control"
   />
+
+  <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger">
+    <div *ngIf="control.errors?.required">{{placeholder}} is required.</div>
+  </div>
 </div>

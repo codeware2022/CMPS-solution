@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-input',
@@ -10,6 +11,7 @@ export class CustomInputComponent {
   @Input() placeholder: string = '';
   @Input() inputId: string = 'custom-input';
   @Input() value: string = '';  
+  @Input() control: FormControl = new FormControl(); // Accepting FormControl as input
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   onInput(): void {

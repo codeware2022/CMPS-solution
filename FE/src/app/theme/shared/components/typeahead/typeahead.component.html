@@ -5,6 +5,7 @@
       id="typeahead-input"
       type="text"
       [(ngModel)]="query"
+      [formControl]="control"
       (input)="onSearch()"
       placeholder="Search..."
       class="form-control"
@@ -21,4 +22,8 @@
       {{ item.name }}
     </li>
   </ul>
+
+  <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger">
+    <div *ngIf="control.errors?.required">{{searchItem}} is required.</div>
+  </div>
 </div>

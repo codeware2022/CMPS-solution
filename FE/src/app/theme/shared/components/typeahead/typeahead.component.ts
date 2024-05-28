@@ -7,6 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-typeahead',
@@ -17,6 +18,7 @@ export class TypeaheadComponent implements OnInit, OnChanges {
   query: string = '';
   @Input() items: any[] = [];
   @Input() searchItem: string = '';
+  @Input() control: FormControl = new FormControl(); // Accepting FormControl as input
   @Output() selected = new EventEmitter<any>();
   filteredItems: any[] = [];
   selectedIndex: number = -1;
