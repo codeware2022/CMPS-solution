@@ -65,11 +65,7 @@ export class AddOurProductComponent {
     { id: 6, name: 'Septra ' },
   ];
 
-
-  constructor(
-    public fromBuilder: FormBuilder,
-    private localStorageService: LocalStorageService,
-  ) {
+  constructor(public fromBuilder: FormBuilder,private localStorageService: LocalStorageService){
     this.initializeForm();
   }
   ngOnInit(): void {
@@ -104,7 +100,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         productName: productName,
       });
-    }
+    }   
   }
 
   onCategorySelected($event: any) {
@@ -115,15 +111,9 @@ export class AddOurProductComponent {
         category: selectedCategory.name,
       });
 
-      if (
-        selectedCategory.subcategories &&
-        selectedCategory.subcategories.length > 0
-      ) {
+      if (selectedCategory.subcategories &&selectedCategory.subcategories.length > 0){
         this.subcategories = selectedCategory.subcategories;
-      } else if (
-        selectedCategory.products &&
-        selectedCategory.products.length > 0
-      ) {
+      } else if (selectedCategory.products && selectedCategory.products.length > 0) {
         this.productList = selectedCategory.products;
       }
     }

@@ -64,25 +64,39 @@ const NavigationItems = [
         ]
       },
       {
-        id:'competitor-product',
-        title:'Competitor Product',
+        id:'competitors',
+        title:'Competitors',
         type:'collapse',
         icon:'feather icon-command',
         class:'nav-item',
         children:[
           {
+            id:'add-competitor',
+            title:'Add Competitor',
+            type:'item',
+            class:'nav-item',
+            url:'/home/competitors/add-competitor'
+          },
+          {
+            id:'view-competitor',
+            title:'View Competitor',
+            type:'item',
+            class:'nav-item',
+            url:'/home/competitors/view-competitor'
+          },
+          {
             id:'add-competitor-product',
             title:'Add Competitor Product',
             type:'item',
             class:'nav-item',
-            url:'/home/competitor-product/add'
+            url:'/home/competitors/add-competitor-product'
           },
           {
             id:'view-competitor-product',
             title:'View Competitor Product',
             type:'item',
             class:'nav-item',
-            url:'/home/competitor-product/view'
+            url:'/home/competitors/view-competitor-product'
           }
         ]
       }
@@ -158,19 +172,20 @@ const NavigationItems = [
             type:'collapse',
             class:'nav-item',
             icon:'feather icon-share-2',
-            children:[
+            children:[     
               {
-                id:'add-sub-therapeutic',
+                id:'Add-sub-therapeutic',
                 title:'Add Sub Therapeutic',
                 type:'item',
                 url:'/home/categories/add-sub-therapeutic'
-              },
+              },        
               {
                 id:'view-sub-therapeutic',
                 title:'View Sub Therapeutic',
                 type:'item',
                 url:'/home/categories/view-sub-therapeutic'
-              }
+              },
+             
             ]           
         },
         {
