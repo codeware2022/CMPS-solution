@@ -1,82 +1,75 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IFormCustomClass } from 'src/app/data/schema/generic/form';
-import { ICategory } from 'src/app/theme/shared/models/Item';
+import {
+  ICategory,
+  IProduct,
+  ISubCategory,
+} from 'src/app/theme/shared/models/Item';
 import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent {
-  productsForm: FormGroup
+  productsForm: FormGroup;
   selectedProducts: any[] = [];
   selectedAvailability: any;
   selectedCategory: string;
   filterText: string = '';
-  categories: ICategory[]= [];
+  categories: ICategory[] = [];
+  subcategories: ISubCategory[] = [];
+  productList: IProduct[] = [];
+  // selectedTheraputicCategory: ICategory;
+  // selectedTheraputicSubCategory: ISubCategory;
+  // selectedProduct: IProduct;
 
-  public productCategoryList = [
-    { id: 1, name: "Pain relief" },
-    { id: 2, name: "Respiratory and Allergies" },
-    { id: 3, name: "Eye and Eye Care" },
-    { id: 4, name: "Foot and Leg care" },
-    { id: 5, name: "Oral Care" },
-    { id: 6, name: "Digestive Care" },
-  ];
-  public productList = [
-    { id: 1, name: "Panadol" },
-    { id: 2, name: "Piriton" },
-    { id: 3, name: "Salbuitamol" },
-    { id: 4, name: "Famotidine" },
-    { id: 5, name: "syrup" },
-    { id: 6, name: "Monoket" },
-  ];
   public genericNameList = [
-    { id: 1, name: "alendronate" },
-    { id: 2, name: "bupropion " },
-    { id: 3, name: "chlordiazepoxide" },
-    { id: 4, name: "cholestyramine" },
-    { id: 5, name: "fluconazole" },
-    { id: 6, name: "guanfacine" },
+    { id: 1, name: 'alendronate' },
+    { id: 2, name: 'bupropion ' },
+    { id: 3, name: 'chlordiazepoxide' },
+    { id: 4, name: 'cholestyramine' },
+    { id: 5, name: 'fluconazole' },
+    { id: 6, name: 'guanfacine' },
   ];
   public manufacturerList = [
-    { id: 1, name: "Remeron" },
-    { id: 2, name: "Antivert " },
-    { id: 3, name: "Cytomel" },
-    { id: 4, name: "Prevacid" },
-    { id: 5, name: "Hydrocortisone " },
-    { id: 6, name: "Septra " },
+    { id: 1, name: 'Remeron' },
+    { id: 2, name: 'Antivert ' },
+    { id: 3, name: 'Cytomel' },
+    { id: 4, name: 'Prevacid' },
+    { id: 5, name: 'Hydrocortisone ' },
+    { id: 6, name: 'Septra ' },
   ];
   public disdtributorList = [
-    { id: 1, name: "Remeron" },
-    { id: 2, name: "Antivert " },
-    { id: 3, name: "Cytomel" },
-    { id: 4, name: "Prevacid" },
-    { id: 5, name: "Hydrocortisone " },
-    { id: 6, name: "Septra " },
+    { id: 1, name: 'Remeron' },
+    { id: 2, name: 'Antivert ' },
+    { id: 3, name: 'Cytomel' },
+    { id: 4, name: 'Prevacid' },
+    { id: 5, name: 'Hydrocortisone ' },
+    { id: 6, name: 'Septra ' },
   ];
   public ingredientList = [
-    { id: 1, name: "Remeron" },
-    { id: 2, name: "Antivert " },
-    { id: 3, name: "Cytomel" },
-    { id: 4, name: "Prevacid" },
-    { id: 5, name: "Hydrocortisone " },
-    { id: 6, name: "Septra " },
+    { id: 1, name: 'Remeron' },
+    { id: 2, name: 'Antivert ' },
+    { id: 3, name: 'Cytomel' },
+    { id: 4, name: 'Prevacid' },
+    { id: 5, name: 'Hydrocortisone ' },
+    { id: 6, name: 'Septra ' },
   ];
   public freeIssueList = [
-    { id: 1, name: "Remeron" },
-    { id: 2, name: "Antivert " },
-    { id: 3, name: "Cytomel" },
-    { id: 4, name: "Prevacid" },
-    { id: 5, name: "Hydrocortisone " },
-    { id: 6, name: "Septra " },
+    { id: 1, name: 'Remeron' },
+    { id: 2, name: 'Antivert ' },
+    { id: 3, name: 'Cytomel' },
+    { id: 4, name: 'Prevacid' },
+    { id: 5, name: 'Hydrocortisone ' },
+    { id: 6, name: 'Septra ' },
   ];
 
   public availability = [
-    { id: 1, name: "Available" },
-    { id: 2, name: "Not Available" },
+    { id: 1, name: 'Available' },
+    { id: 2, name: 'Not Available' },
   ];
   typeheadCustomClasses: IFormCustomClass = {
     formGroup: 'form-group',
@@ -84,66 +77,115 @@ export class AddProductComponent {
     input: 'text-break',
   };
 
-  constructor(public fromBuilder: FormBuilder, private localStorageService: LocalStorageService) {
+  constructor(
+    public fromBuilder: FormBuilder,
+    private localStorageService: LocalStorageService,
+  ) {
     this.initializeForm();
   }
   ngOnInit(): void {
-    this.categories = this.localStorageService.getObject('categories'); 
+    this.categories = this.localStorageService.getObject('categories');
   }
 
   initializeForm() {
-    this.productsForm = this.fromBuilder.group(
-      {
-        category: [null, Validators.required],
-        productName: [null, Validators.required],
-        selectedProducts: [],
-        genericName: [null],
-        manufacturer: [null],
-        distributor: [null],
-        ingredient: [null],
-        composition: [null],
-        freeissue: [null],
-        availabity: [null],
-        marketLeader: [null],
-        marketShare: [null],
-        information: [null],
-        strength: [null],
-        avgSalesQty: [null],
-        photo: [null]
-      },
+    this.productsForm = this.fromBuilder.group({
+      productName: [null, Validators.required],
+      category: [null, Validators.required],
+      subcategory: [null],
+      productMasterName: [null, Validators.required],
 
-    );
+      genericName: [null],
+      manufacturer: [null],
+      distributor: [null],
+      ingredient: [null],
+      composition: [null],
+      freeissue: [null],
+      availabity: [null],
+      marketLeader: [null],
+      marketShare: [null],
+      information: [null],
+      strength: [null],
+      avgSalesQty: [null],
+      photo: [null],
+    });
   }
 
   get f() {
     return this.productsForm.controls;
   }
 
-  onProductCategorySelect($event: any) {
+  onProductNameChange($event: any) {
     if ($event && !($event instanceof Event)) {
-      const selectedCategory: any = $event;
+      const productName: string = $event;
       this.productsForm.patchValue({
-        category: selectedCategory
+        productName: productName,
       });
     }
   }
 
-  onProductSelect($event: any) {
+  onCategorySelected($event: any) {
     if ($event && !($event instanceof Event)) {
-      const selectedProduct: any = $event;
-      this.selectedProducts.push(selectedProduct);
+      const selectedCategory: ICategory = $event;
 
       this.productsForm.patchValue({
-        productName: selectedProduct.name,
+        category: selectedCategory.name,
+      });
+
+      if (
+        selectedCategory.subcategories &&
+        selectedCategory.subcategories.length > 0
+      ) {
+        this.subcategories = selectedCategory.subcategories;
+      } else if (
+        selectedCategory.products &&
+        selectedCategory.products.length > 0
+      ) {
+        this.productList = selectedCategory.products;
+      }
+    }
+  }
+
+  onSubCategorySelected($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const selectedSubCategory: ISubCategory = $event;
+
+      this.productsForm.patchValue({
+        subcategory: selectedSubCategory.name,
+      });
+
+      if (
+        selectedSubCategory.products &&
+        selectedSubCategory.products.length > 0
+      ) {
+        this.productList = selectedSubCategory.products;
+      }
+    }
+  }
+
+  onProductSelected($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const selectedProduct: IProduct = $event;
+
+      this.productsForm.patchValue({
+        productMasterName: selectedProduct.name,
       });
     }
   }
 
-  onGenericNameSelect($event: any) {
+  onGenericNameSelected($event: any) {
     if ($event && !($event instanceof Event)) {
       const selectedGenericName: any = $event;
       this.productsForm.patchValue({
         genericName: selectedGenericName.name,
+      });
+    }
+  }
+
+  onManufacturerSelected($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const selectedManufacturer: any = $event;
+      this.productsForm.patchValue({
+        manufacturer: selectedManufacturer.name,
       });
     }
   }
@@ -189,16 +231,15 @@ export class AddProductComponent {
       const selectedProduct: any = $event;
       this.selectedProducts.push(selectedProduct.id);
       this.productsForm.patchValue({
-        selectedProducts: this.selectedProducts
-      })
+        selectedProducts: this.selectedProducts,
+      });
     }
   }
 
   selectAll() {
-    let prodIds = this.productList.map(p => {
-      return p.id
-    })
-    this.productsForm.get("selectedProducts").setValue(prodIds);
+    let prodIds = this.productList.map((p) => {
+      return p.id;
+    });
+    this.productsForm.get('selectedProducts').setValue(prodIds);
   }
-
 }

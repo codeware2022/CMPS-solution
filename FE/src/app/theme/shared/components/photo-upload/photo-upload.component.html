@@ -1,17 +1,34 @@
-<div class="photo-upload-container">
-  <label for="photo-upload-input" class="photo-upload-label"
-    >Upload a photo:</label
+<div class="container mt-3">
+  <label for="photo-upload-input" class="form-label"
+    >Upload photos (up to 5):</label
   >
   <input
     type="file"
     id="photo-upload-input"
-    (change)="onFileSelected($event)"
-    class="photo-upload-input"
+    (change)="onFilesSelected($event)"
+    class="form-control"
+    multiple
+    accept="image/*"
+    [disabled]="previewUrls.length >= 5"
   />
-  <div *ngIf="previewUrl" class="photo-preview">
-    <img [src]="previewUrl" alt="Photo Preview" class="preview-img" />
+
+  <div *ngIf="previewUrls.length > 0" class="row mt-3">
+    <div
+      *ngFor="let previewUrl of previewUrls; let i = index"
+      class="col-4 mb-3"
+    >
+      <img [src]="previewUrl" alt="Photo Preview" class="img-thumbnail" />
+      <button
+        type="button"
+        class="btn btn-danger mt-2"
+        (click)="removePhoto(i)"
+      >
+        Remove
+      </button>
+    </div>
   </div>
-  <div *ngIf="errorMessage" class="error-message">
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
     {{ errorMessage }}
   </div>
 </div>
