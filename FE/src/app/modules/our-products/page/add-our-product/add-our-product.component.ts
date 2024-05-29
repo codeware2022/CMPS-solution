@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   ICategory,
+  IOurProduct,
   IProduct,
   ISubCategory,
 } from 'src/app/theme/shared/models/Item';
@@ -20,6 +21,9 @@ export class AddOurProductComponent {
   categories: ICategory[] = [];
   subcategories: ISubCategory[] = [];
   productList: IProduct[] = [];
+
+  ourProducts: IOurProduct[] = [];
+  private productIdCounter: number = 1;
 
   public genericNameList = [
     { id: 1, name: 'alendronate' },
@@ -70,6 +74,10 @@ export class AddOurProductComponent {
   }
   ngOnInit(): void {
     this.categories = this.localStorageService.getObject('categories');
+    if(this.localStorageService.getObject('OurProducts').length > 0){
+      this.ourProducts = this.localStorageService.getObject('OurProducts');
+    }
+    
   }
 
   initializeForm() {
@@ -189,6 +197,13 @@ export class AddOurProductComponent {
   }
 
   onSubmit(){
-    console.log(this.productsForm.value);
+    debugger;
+    const productWithId = {
+      ...this.productsForm.value,
+      id: this.productIdCounter
+    };
+    //console.log(this.productsForm.value);
+    this.ourProducts.push(productWithId);
+    this.localStorageService.setObject("OurProducts",this.ourProducts);
   }
 }

@@ -1,3 +1,15 @@
+export interface IOurProduct{
+    id: number;
+    productName: string
+    category: string,
+    subcategory: string,
+    productMasterName: string,
+    genericName: string,
+    manufacturer: string,
+    dosageForm: string,
+    ingredient: string,
+}
+
 export interface IProduct{
     id: number;
     name: string;

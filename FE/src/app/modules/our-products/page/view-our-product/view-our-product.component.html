@@ -1,1 +1,48 @@
-<p>view-our-product works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search products..."
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+  </div>
+  <div class="table-responsive table-wrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Subcategory</th>
+          <th>Product Master Name</th>
+          <th>Generic Name</th>
+          <th>Manufacturer</th>
+          <th>Dosage Form</th>
+          <th>Ingredient</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.id }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.subcategory }}</td>
+          <td>{{ product.productMasterName }}</td>
+          <td>{{ product.genericName }}</td>
+          <td>{{ product.manufacturer }}</td>
+          <td>{{ product.dosageForm }}</td>
+          <td>{{ formatIngredients(product.ingredient) }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="addRandomProduct(product)">
+              Add Random Product
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
