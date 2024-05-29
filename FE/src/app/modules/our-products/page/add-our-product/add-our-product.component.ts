@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IFormCustomClass } from 'src/app/data/schema/generic/form';
 import {
   ICategory,
+  IOurProduct,
   IProduct,
   ISubCategory,
 } from 'src/app/theme/shared/models/Item';
@@ -18,13 +18,12 @@ export class AddOurProductComponent {
   selectedProducts: any[] = [];
   selectedAvailability: any;
   selectedCategory: string;
-  filterText: string = '';
   categories: ICategory[] = [];
   subcategories: ISubCategory[] = [];
   productList: IProduct[] = [];
-  // selectedTheraputicCategory: ICategory;
-  // selectedTheraputicSubCategory: ISubCategory;
-  // selectedProduct: IProduct;
+
+  ourProducts: IOurProduct[] = [];
+  private productIdCounter: number = 1;
 
   public genericNameList = [
     { id: 1, name: 'alendronate' },
@@ -43,7 +42,7 @@ export class AddOurProductComponent {
     { id: 6, name: 'Septra ' },
   ];
 
-  public dorsageFormList: any[] = [
+  public dosageFormList: any[] = [
     { id: 1, name: 'Solid' },
     { id: 2, name: 'Semi-solid' },
     { id: 3, name: 'Liquid' },
@@ -65,31 +64,16 @@ export class AddOurProductComponent {
     { id: 5, name: 'Hydrocortisone ' },
     { id: 6, name: 'Septra ' },
   ];
-  public freeIssueList = [
-    { id: 1, name: 'Remeron' },
-    { id: 2, name: 'Antivert ' },
-    { id: 3, name: 'Cytomel' },
-    { id: 4, name: 'Prevacid' },
-    { id: 5, name: 'Hydrocortisone ' },
-    { id: 6, name: 'Septra ' },
-  ];
-
-  public availability = [
-    { id: 1, name: 'Available' },
-    { id: 2, name: 'Not Available' },
-  ];
-  
-  typeheadCustomClasses: IFormCustomClass = {
-    formGroup: 'form-group',
-    label: 'font-weight-bold text-muted small mb-0',
-    input: 'text-break',
-  };
 
   constructor(public fromBuilder: FormBuilder,private localStorageService: LocalStorageService){
     this.initializeForm();
   }
   ngOnInit(): void {
     this.categories = this.localStorageService.getObject('categories');
+    if(this.localStorageService.getObject('OurProducts').length > 0){
+      this.ourProducts = this.localStorageService.getObject('OurProducts');
+    }
+    
   }
 
   initializeForm() {
@@ -98,19 +82,11 @@ export class AddOurProductComponent {
       category: [null, Validators.required],
       subcategory: [null],
       productMasterName: [null, Validators.required],
-      genericName: [null],
+      genericName: [null, Validators.required],
       manufacturer: [null],
-      dorsageForm: [null],
+      dosageForm: [null],
       ingredient: [null],
-      composition: [null],
-      freeissue: [null],
-      availabity: [null],
-      marketLeader: [null],
-      marketShare: [null],
-      information: [null],
-      strength: [null],
-      avgSalesQty: [null],
-      photo: [null],
+      photos: [null],
     });
   }
 
@@ -180,7 +156,7 @@ export class AddOurProductComponent {
   }
 
   onManufacturerSelected($event: any) {
-    if ($event && !($event instanceof Event)) { 
+    if ($event && !($event instanceof Event)) {
       const selectedManufacturer: any = $event;
       this.productsForm.patchValue({
         manufacturer: selectedManufacturer.name,
@@ -188,56 +164,36 @@ export class AddOurProductComponent {
     }
   }
 
-  onDorsageFormSelect($event: any) {
+  onDosageFormSelect($event: any) {
     if ($event && !($event instanceof Event)) {
-      const selecedDorsageForm: any = $event;
+      const selecedDosageForm: any = $event;
       this.productsForm.patchValue({
-        dorsageForm: selecedDorsageForm.name,
+        dosageForm: selecedDosageForm.name,
       });
     }
   }
 
-  onIngredientSelect($event: any) {
+  onIngredientAdded($event: any) {
     if ($event && !($event instanceof Event)) {
-      const selecetIngredient: any = $event;
+      const ingredientAdded: any = $event;
       this.productsForm.patchValue({
-        ingredient: selecetIngredient.name,
+        ingredient: ingredientAdded,
       });
     }
   }
 
-  onFreeIssueSelect($event: any) {
-    if ($event && !($event instanceof Event)) {
-      const selecetFreeIssue: any = $event;
-      this.productsForm.patchValue({
-        freeissue: selecetFreeIssue.name,
-      });
-    }
+  onReset(){
+    this.productsForm.reset();
   }
 
-  onAvailabilitySelect($event: any) {
-    if ($event && !($event instanceof Event)) {
-      const selecetAvailability: any = $event;
-      this.productsForm.patchValue({
-        availabity: selecetAvailability,
-      });
-    }
-  }
-
-  onSelect($event: any) {
-    if ($event && !($event instanceof Event)) {
-      const selectedProduct: any = $event;
-      this.selectedProducts.push(selectedProduct.id);
-      this.productsForm.patchValue({
-        selectedProducts: this.selectedProducts,
-      });
-    }
-  }
-
-  selectAll() {
-    let prodIds = this.productList.map((p) => {
-      return p.id;
-    });
-    this.productsForm.get('selectedProducts').setValue(prodIds);
+  onSubmit(){
+    debugger;
+    const productWithId = {
+      ...this.productsForm.value,
+      id: this.productIdCounter
+    };
+    //console.log(this.productsForm.value);
+    this.ourProducts.push(productWithId);
+    this.localStorageService.setObject("OurProducts",this.ourProducts);
   }
 }

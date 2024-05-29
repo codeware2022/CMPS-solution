@@ -13,6 +13,7 @@
                 label="Enter product name:"
                 placeholder="Product name"
                 (valueChange)="onProductNameChange($event)"
+                [control]="productsForm.controls['productName']">
               >
               </app-custom-input>
             </div>
@@ -22,6 +23,7 @@
                 [items]="categories"
                 searchItem="Category"
                 (selected)="onCategorySelected($event)"
+                [control]="productsForm.controls['category']"
               ></app-typeahead>
             </div>
 
@@ -44,6 +46,7 @@
                 [items]="productList"
                 searchItem="Product"
                 (selected)="onProductSelected($event)"
+                [control]="productsForm.controls['productMasterName']"
               ></app-typeahead>
             </div>
 
@@ -52,6 +55,7 @@
                 [items]="genericNameList"
                 searchItem="Generic Name"
                 (selected)="onGenericNameSelected($event)"
+                [control]="productsForm.controls['genericName']"
               ></app-typeahead>
             </div>
 
@@ -65,23 +69,30 @@
 
             <div class="form-group">
               <app-typeahead
-                [items]="dorsageFormList"
+                [items]="dosageFormList"
                 searchItem="Dorsage Form"
-                (selected)="onDorsageFormSelect($event)"
+                (selected)="onDosageFormSelect($event)"
               ></app-typeahead>
-            </div>
-
-            <div>
-              <app-ingredients-table></app-ingredients-table>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
+              <app-ingredients-table
+                (itemAdded)="onIngredientAdded($event)"
+              ></app-ingredients-table>
+            </div>
+            <div class="form-group">
               <app-photo-upload></app-photo-upload>
             </div>
             <div class="form-group mt-3 ml-2">
-              <button class="btn btn-primary ml-3">Submit</button>
-              <button class="btn btn-danger">Reset</button>
+              <button
+                [disabled]="productsForm.invalid"
+                class="btn btn-primary ml-3"
+                (click)="onSubmit()"
+              >
+                Submit
+              </button>
+              <button class="btn btn-danger" (click)="onReset()">Reset</button>
             </div>
           </div>
         </div>
