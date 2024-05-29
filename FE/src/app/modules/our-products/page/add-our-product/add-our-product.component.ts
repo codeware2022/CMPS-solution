@@ -72,8 +72,8 @@ export class AddOurProductComponent {
     this.categories = this.localStorageService.getObject('categories');
     if(this.localStorageService.getObject('OurProducts').length > 0){
       this.ourProducts = this.localStorageService.getObject('OurProducts');
+      this.productIdCounter = this.localStorageService.getObject('OurProducts').length;
     }
-    
   }
 
   initializeForm() {

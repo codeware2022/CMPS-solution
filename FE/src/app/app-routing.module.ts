@@ -41,7 +41,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        loadChildren: () => import('./modules/products/products.module').then(
+        loadChildren: () => import('./modules/product-comparison/product-comparison.module').then(
           (m) => m.ProductsModule),
 
       },
