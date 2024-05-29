@@ -10,15 +10,19 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Therapeutic Category</th>
+                        <th scope="col">Competitor Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact No</th>
                         <th scope="col">Remarks</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let tc of countries" >
-                        <th scope="row">{{tc.id}}</th>
-                        <td>{{tc.therapeuticCategoryName}}</td>
-                        <td>{{tc.remarks}}</td>
+                    <tr *ngFor="let competitor of competitors" >
+                        <th scope="row">{{competitor.id}}</th>
+                        <td>{{competitor.competitorName}}</td>
+                        <td>{{competitor.email}}</td>
+                        <td>{{competitor.contactNo}}</td>
+                        <td>{{competitor.remarks}}</td>
                     </tr>
                 </tbody>
             </table>

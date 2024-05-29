@@ -24,9 +24,9 @@ const routes: Routes = [
           (m)=>m.OurProductsModule)
       },
       {
-        path:'competitor-product',
-        loadChildren:()=>import('./modules/competitor-product/competitor-product.module').then(
-          (m)=>m.CompetitorProductModule)
+        path:'competitors',
+        loadChildren:()=>import('./modules/competitors/competitors.module').then(
+          (m)=>m.CompetitorsModule)
       },
       {
         path: 'team',

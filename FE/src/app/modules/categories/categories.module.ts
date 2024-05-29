@@ -8,7 +8,7 @@ import { ViewSubTherapeuticCategoryComponent } from './page/sub-therapeutic/view
 import { ViewTherapeuticCategoryComponent } from './page/therapeutic/view-therapeutic-category/view-therapeutic-category.component';
 import { AddProductMasterComponent } from './page/product-master/add-product-master/add-product-master.component';
 import { ViewProductMasterComponent } from './page/product-master/view-product-master/view-product-master.component';
-import { AddSubTherapeuticCategoryComponent } from './page/sub-therapeutic/add-sub-therapeutic-category/add-sub-therapeutic-category.component';
+
 import { ViewDosageFormComponent } from './page/dosage-form/view-dosage-form/view-dosage-form.component';
 import { ViewMeasurementUnitsComponent } from './page/measurement-units/view-measurement-units/view-measurement-units.component';
 import { AddIngredientComponent } from './page/ingredient/add-ingredient/add-ingredient.component';
@@ -17,15 +17,19 @@ import { AddGenericComponent } from './page/generic/add-generic/add-generic.comp
 import { ViewGenericComponent } from './page/generic/view-generic/view-generic.component';
 import { AddManufacturerComponent } from './page/manufacturer/add-manufacturer/add-manufacturer.component';
 import { ViewManufacturerComponent } from './page/manufacturer/view-manufacturer/view-manufacturer.component';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { CardModule } from 'src/app/theme/shared/components';
+import { AddTherapeuticCategoryComponent } from './page/therapeutic/add-therapeutic-category/add-therapeutic-category.component';
+import { AddSubTherapeuticCategoryComponent } from './page/sub-therapeutic/add-sub-therapeutic-category/add-sub-therapeutic-category.component';
 
 
 @NgModule({
   declarations: [
     CategoryMasterComponent,
     CategoryCardComponent,
-    ViewSubTherapeuticCategoryComponent,
-    AddSubTherapeuticCategoryComponent,
-    ViewTherapeuticCategoryComponent,
+    AddTherapeuticCategoryComponent,
+    ViewTherapeuticCategoryComponent,    
+    ViewSubTherapeuticCategoryComponent,   
     AddProductMasterComponent,
     ViewProductMasterComponent,
     ViewDosageFormComponent,
@@ -35,11 +39,14 @@ import { ViewManufacturerComponent } from './page/manufacturer/view-manufacturer
     AddGenericComponent,
     ViewGenericComponent,
     AddManufacturerComponent,
-    ViewManufacturerComponent,    
+    ViewManufacturerComponent,
+    AddSubTherapeuticCategoryComponent,    
   ],
   imports: [
     CommonModule,
-    CategoriesRoutingModule
+    CategoriesRoutingModule,
+    SharedModule,
+    CardModule
   ]
 })
 export class CategoriesModule { }

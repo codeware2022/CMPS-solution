@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoryMasterComponent } from './page/category-master/category-master.component';
 import { AddTherapeuticCategoryComponent } from './page/therapeutic/add-therapeutic-category/add-therapeutic-category.component';
 import { ViewTherapeuticCategoryComponent } from './page/therapeutic/view-therapeutic-category/view-therapeutic-category.component';
-import { AddSubTherapeuticCategoryComponent } from './page/sub-therapeutic/add-sub-therapeutic-category/add-sub-therapeutic-category.component';
+
 import { AddProductMasterComponent } from './page/product-master/add-product-master/add-product-master.component';
 import { ViewProductMasterComponent } from './page/product-master/view-product-master/view-product-master.component';
 import { AddDosageFormComponent } from './page/dosage-form/add-dosage-form/add-dosage-form.component';
@@ -16,6 +16,8 @@ import { ViewGenericComponent } from './page/generic/view-generic/view-generic.c
 import { AddGenericComponent } from './page/generic/add-generic/add-generic.component';
 import { AddManufacturerComponent } from './page/manufacturer/add-manufacturer/add-manufacturer.component';
 import { ViewManufacturerComponent } from './page/manufacturer/view-manufacturer/view-manufacturer.component';
+import { ViewSubTherapeuticCategoryComponent } from './page/sub-therapeutic/view-sub-therapeutic-category/view-sub-therapeutic-category.component';
+import { AddSubTherapeuticCategoryComponent } from './page/sub-therapeutic/add-sub-therapeutic-category/add-sub-therapeutic-category.component';
 
 const routes: Routes = [
   {
@@ -41,7 +43,7 @@ const routes: Routes = [
   {
     path:'view-sub-therapeutic',
     pathMatch:'full',
-    component:ViewTherapeuticCategoryComponent
+    component:ViewSubTherapeuticCategoryComponent
   },
   {
     path:'add-product-master',
