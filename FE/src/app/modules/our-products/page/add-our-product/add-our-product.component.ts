@@ -25,6 +25,16 @@ export class AddOurProductComponent {
   ourProducts: IOurProduct[] = [];
   private productIdCounter: number = 1;
 
+
+  public brandNames = [
+    { id: 1, name: 'alendronate' },
+    { id: 2, name: 'bupropion ' },
+    { id: 3, name: 'chlordiazepoxide' },
+    { id: 4, name: 'cholestyramine' },
+    { id: 5, name: 'fluconazole' },
+    { id: 6, name: 'guanfacine' },
+  ];
+  
   public genericNameList = [
     { id: 1, name: 'alendronate' },
     { id: 2, name: 'bupropion ' },
@@ -78,6 +88,8 @@ export class AddOurProductComponent {
 
   initializeForm() {
     this.productsForm = this.fromBuilder.group({
+      brandName: [null, Validators.required],
+      productCode: [null, Validators.required],
       productName: [null, Validators.required],
       category: [null, Validators.required],
       subcategory: [null],
@@ -92,6 +104,15 @@ export class AddOurProductComponent {
 
   get f() {
     return this.productsForm.controls;
+  }
+
+  onProductCodeChange($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const productCode: string = $event;
+      this.productsForm.patchValue({
+        productCode: productCode,
+      });
+    }   
   }
 
   onProductNameChange($event: any) {
@@ -164,6 +185,15 @@ export class AddOurProductComponent {
     }
   }
 
+  onBrandNameSelected($event: any){
+    if ($event && !($event instanceof Event)) {
+      const selectedBrandName: any = $event;
+      this.productsForm.patchValue({
+        brandName: selectedBrandName.name,
+      });
+    }
+  }
+
   onDosageFormSelect($event: any) {
     if ($event && !($event instanceof Event)) {
       const selecedDosageForm: any = $event;
@@ -188,12 +218,12 @@ export class AddOurProductComponent {
 
   onSubmit(){
     debugger;
-    const productWithId = {
-      ...this.productsForm.value,
-      id: this.productIdCounter
-    };
-    //console.log(this.productsForm.value);
-    this.ourProducts.push(productWithId);
+    // const productWithId = {
+    //   ...this.productsForm.value,
+    //   id: this.productIdCounter
+    // };
+    console.log(this.productsForm.value);
+    this.ourProducts.push(this.productsForm.value);
     this.localStorageService.setObject("OurProducts",this.ourProducts);
   }
 }
