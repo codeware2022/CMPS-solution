@@ -323,22 +323,22 @@ const NavigationItems = [
     type: 'group',   
     children: [
           {
-            id: 'brandmanager',
-            title: 'Brand Manager',
+            id: 'business-manager',
+            title: 'Business Manager',
             type: 'collapse',
             icon:'feather icon-users',
             children:[
               {
-              id: 'add-brandmanager',
-              title: 'Brand Manager',
+              id: 'add-business-manager',
+              title: 'Add Business Manager',
               type: 'item',
-              url: '/home/team/add-brandmanager',
+              url: '/home/team/add-business-manager',
             },
             {
-              id: 'view-brandmanager',
-              title: 'View Manager',
+              id: 'view-business-manager',
+              title: 'View Business Manager',
               type: 'item',
-              url: '/home/team/view-brandmanager',
+              url: '/home/team/view-business-manager',
             }
           ]
           },
