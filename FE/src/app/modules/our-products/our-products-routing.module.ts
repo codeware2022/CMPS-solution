@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddOurProductComponent } from './page/add-our-product/add-our-product.component';
 import { ViewOurProductComponent } from './page/view-our-product/view-our-product.component';
+import { OurProductProfileComponent } from './page/our-product-profile/our-product-profile.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     path:'view',
     pathMatch:'full',
     component:ViewOurProductComponent
+  },
+  {
+    path:'our-product-profile',
+    pathMatch:'full',
+    component:OurProductProfileComponent
   }
 ];
 

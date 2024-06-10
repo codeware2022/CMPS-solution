@@ -11,7 +11,6 @@ import { ProductDetailComponent } from './page/product-detail/product-detail.com
 import { ProductCategoryIconComponent } from './page/product-category-icon/product-category-icon.component';
 import { ProductsComparisonComponent } from './page/products-comparison/products-comparison.component';
 import { CompetitorProductsComponent } from './page/competitor-products/competitor-products.component';
-import { TestComponent } from './page/test/test.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { TestComponent } from './page/test/test.component';
     ProductCategoryIconComponent,
     ProductsComparisonComponent,
     CompetitorProductsComponent,
-    TestComponent
+    
   ],
   imports: [
     CommonModule,

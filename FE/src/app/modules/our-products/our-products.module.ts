@@ -7,12 +7,14 @@ import { AddOurProductComponent } from './page/add-our-product/add-our-product.c
 import { ViewOurProductComponent } from './page/view-our-product/view-our-product.component';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { IngredientsTableComponent } from './page/ingredients-table/ingredients-table.component';
+import { OurProductProfileComponent } from './page/our-product-profile/our-product-profile.component';
 
 @NgModule({
   declarations: [
     AddOurProductComponent,
     ViewOurProductComponent,
-    IngredientsTableComponent
+    IngredientsTableComponent,
+    OurProductProfileComponent
   ],
   imports: [
     CommonModule,
