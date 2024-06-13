@@ -30,7 +30,6 @@ export class ViewOurProductComponent implements OnInit {
       product.productName.toLowerCase().includes(lowerCaseTerm) ||
       product.category.toLowerCase().includes(lowerCaseTerm) ||
       product.subcategory.toLowerCase().includes(lowerCaseTerm) ||
-      product.productMasterName.toLowerCase().includes(lowerCaseTerm) ||
       product.genericName.toLowerCase().includes(lowerCaseTerm) ||
       product.manufacturer.toLowerCase().includes(lowerCaseTerm)
     );
