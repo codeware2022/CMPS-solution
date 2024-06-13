@@ -14,6 +14,7 @@
                 searchItem="Brand Name"
                 (selected)="onBrandNameSelected($event)"
                 [control]="productsForm.controls['brandName']"
+                [isRequired]="true"
               ></app-typeahead>
             </div>
 
@@ -23,6 +24,7 @@
                 searchItem="Theraputic Category"
                 (selected)="onCategorySelected($event)"
                 [control]="productsForm.controls['category']"
+                [isRequired]="true"
               ></app-typeahead>
             </div>
 
@@ -43,6 +45,7 @@
                 placeholder="Product code"
                 (valueChange)="onProductCodeChange($event)"
                 [control]="productsForm.controls['productCode']"
+                [isRequired]="true"
               >
               </app-custom-input>
             </div>
@@ -53,11 +56,12 @@
                 placeholder="Product name"
                 (valueChange)="onProductNameChange($event)"
                 [control]="productsForm.controls['productName']"
+                [isRequired]="true"
               >
               </app-custom-input>
             </div>
 
-            <div
+            <!-- <div
               class="form-group"
               *ngIf="productList && productList.length > 0"
             >
@@ -66,8 +70,9 @@
                 searchItem="Product"
                 (selected)="onProductSelected($event)"
                 [control]="productsForm.controls['productMasterName']"
+                [isRequired]="true"
               ></app-typeahead>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <app-typeahead
@@ -75,6 +80,7 @@
                 searchItem="Generic Name"
                 (selected)="onGenericNameSelected($event)"
                 [control]="productsForm.controls['genericName']"
+                [isRequired]="true"
               ></app-typeahead>
             </div>
 
@@ -93,8 +99,85 @@
                 (selected)="onDosageFormSelect($event)"
               ></app-typeahead>
             </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter composition strength:"
+                placeholder="composition strength"
+                (valueChange)="onCompositionEntered($event)"
+                [control]="productsForm.controls['composition']"
+              >
+              </app-custom-input>
+            </div>
+
+           
+
           </div>
           <div class="col-md-6">
+           
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter SWOT:"
+                placeholder="SWOT"
+                (valueChange)="onSwotEntered($event)"
+                [control]="productsForm.controls['swot']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Distributer:"
+                placeholder="Distributer / Local Agent"
+                (valueChange)="onDistributerEntered($event)"
+                [control]="productsForm.controls['distributor']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Pack Size:"
+                placeholder="Pack Size"
+                (valueChange)="onPackSizeEntered($event)"
+                [control]="productsForm.controls['packSize']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter IMS value:"
+                placeholder="International Medical Statistics value"
+                (valueChange)="onPackSizeEntered($event)"
+                [control]="productsForm.controls['packSize']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter Flavor:"
+                placeholder="Flavor"
+                (valueChange)="onFlavorEntered($event)"
+                [control]="productsForm.controls['flavor']"
+              >
+              </app-custom-input>
+            </div>
+
+            <div class="form-group">
+              <app-custom-input
+                label="Enter color:"
+                placeholder="Color"
+                (valueChange)="onColorEntered($event)"
+                [control]="productsForm.controls['color']"
+              >
+              </app-custom-input>
+            </div>
+
+
+
             <div class="form-group">
               <app-ingredients-table
                 (itemAdded)="onIngredientAdded($event)"

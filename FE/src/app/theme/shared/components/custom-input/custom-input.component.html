@@ -1,5 +1,7 @@
 <div class="form-group">
-  <label [for]="inputId" class="form-label">{{ label }}</label>
+  <label [for]="inputId" class="form-label"
+    >{{ label }}<span *ngIf="isRequired" class="text-danger">*</span></label
+  >
   <input
     [id]="inputId"
     type="text"
@@ -9,7 +11,10 @@
     class="form-control"
   />
 
-  <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger">
-    <div *ngIf="control.errors?.required">{{placeholder}} is required.</div>
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="text-danger"
+  >
+    <div *ngIf="control.errors?.required">{{ placeholder }} is required.</div>
   </div>
 </div>

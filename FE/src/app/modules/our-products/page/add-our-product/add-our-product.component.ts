@@ -93,10 +93,17 @@ export class AddOurProductComponent {
       productName: [null, Validators.required],
       category: [null, Validators.required],
       subcategory: [null],
-      productMasterName: [null, Validators.required],
+      //productMasterName: [null, Validators.required],
       genericName: [null, Validators.required],
       manufacturer: [null],
       dosageForm: [null],
+      composition: [null],
+      swot: [null],
+      distributor: [null],
+      packSize: [null],
+      IMS: [null],
+      flavor: [null],
+      color: [null],
       ingredient: [null],
       photos: [null],
     });
@@ -120,6 +127,70 @@ export class AddOurProductComponent {
       const productName: string = $event;
       this.productsForm.patchValue({
         productName: productName,
+      });
+    }   
+  }
+
+  onCompositionEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const composition: string = $event;
+      this.productsForm.patchValue({
+        composition: composition,
+      });
+    }   
+  }
+
+  onDistributerEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const distributer: string = $event;
+      this.productsForm.patchValue({
+        composition: distributer,
+      });
+    }   
+  }
+
+  onPackSizeEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const packSize: string = $event;
+      this.productsForm.patchValue({
+        packSize: packSize,
+      });
+    }   
+  }
+
+  onFlavorEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const flavor: string = $event;
+      this.productsForm.patchValue({
+        flavor: flavor,
+      });
+    }   
+  }
+
+  onColorEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const color: string = $event;
+      this.productsForm.patchValue({
+        color: color,
+      });
+    }   
+  }
+
+  onIMSEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const IMS: string = $event;
+      this.productsForm.patchValue({
+        packSize: IMS,
+      });
+    }   
+  }
+
+
+  onSwotEntered($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const swot: string = $event;
+      this.productsForm.patchValue({
+        swot: swot,
       });
     }   
   }
@@ -148,12 +219,12 @@ export class AddOurProductComponent {
         subcategory: selectedSubCategory.name,
       });
 
-      if (
-        selectedSubCategory.products &&
-        selectedSubCategory.products.length > 0
-      ) {
-        this.productList = selectedSubCategory.products;
-      }
+      // if (
+      //   selectedSubCategory.products &&
+      //   selectedSubCategory.products.length > 0
+      // ) {
+      //   this.productList = selectedSubCategory.products;
+      // }
     }
   }
 
