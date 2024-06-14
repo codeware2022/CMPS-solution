@@ -1,20 +1,31 @@
 <div class="form-group">
-  <label [for]="inputId" class="form-label"
-    >{{ label }}<span *ngIf="isRequired" class="text-danger">*</span></label
-  >
-  <input
-    [id]="inputId"
-    type="text"
-    [formControl]="control"
-    (input)="onInput()"
-    [placeholder]="placeholder"
-    class="form-control"
-  />
+  <label [for]="inputId" class="form-label">
+    {{ label }}<span *ngIf="isRequired" class="text-danger">*</span>
+  </label>
+  
+  <ng-container *ngIf="!isTextArea; else textAreaTemplate">
+    <input
+      [id]="inputId"
+      type="text"
+      [formControl]="control"
+      (input)="onInput()"
+      [placeholder]="placeholder"
+      class="form-control"
+    />
+  </ng-container>
 
-  <div
-    *ngIf="control.invalid && (control.dirty || control.touched)"
-    class="text-danger"
-  >
+  <ng-template #textAreaTemplate>
+    <textarea
+      [id]="inputId"
+      [formControl]="control"
+      (input)="onInput()"
+      [placeholder]="placeholder"
+      class="form-control"
+    ></textarea>
+  </ng-template>
+
+  <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger">
     <div *ngIf="control.errors?.required">{{ placeholder }} is required.</div>
   </div>
 </div>
+

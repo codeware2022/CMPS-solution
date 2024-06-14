@@ -26,18 +26,18 @@ export class ViewOurProductComponent implements OnInit {
       return this.ourProducts;
     }
     const lowerCaseTerm = this.searchTerm.toLowerCase();
-    return this.ourProducts.filter(product =>
-      product.productName.toLowerCase().includes(lowerCaseTerm) ||
-      product.category.toLowerCase().includes(lowerCaseTerm) ||
-      product.subcategory.toLowerCase().includes(lowerCaseTerm) ||
-      product.genericName.toLowerCase().includes(lowerCaseTerm) ||
-      product.manufacturer.toLowerCase().includes(lowerCaseTerm)
+    let products = this.ourProducts.filter(product =>
+      (product.productName?.toLowerCase()?.includes(lowerCaseTerm) || false) ||
+      (product.category?.toLowerCase()?.includes(lowerCaseTerm) || false) ||
+      (product.subcategory?.toLowerCase()?.includes(lowerCaseTerm) || false) ||
+      (product.genericName?.toLowerCase()?.includes(lowerCaseTerm) || false) ||
+      (product.manufacturer?.toLowerCase()?.includes(lowerCaseTerm) || false)
     );
+    return products;
   }
 
   addRandomProduct(product: IOurProduct) {
     console.log('Adding product:', product);
-    // Implement the logic to add the specific product
-    //this.products.push({ ...product, id: this.products.length + 1 });
+    
   }
 }
