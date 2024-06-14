@@ -18,6 +18,7 @@ export class TypeaheadComponent implements OnInit, OnChanges {
   query: string = '';
   @Input() items: any[] = [];
   @Input() searchItem: string = '';
+  @Input() isRequired: boolean = false;
   @Input() control: FormControl = new FormControl(); // Accepting FormControl as input
   @Output() selected = new EventEmitter<any>();
   filteredItems: any[] = [];
