@@ -25,7 +25,6 @@ export class AddOurProductComponent {
   ourProducts: IOurProduct[] = [];
   private productIdCounter: number = 1;
 
-
   public brandNames = [
     { id: 1, name: 'alendronate' },
     { id: 2, name: 'bupropion ' },
@@ -34,7 +33,7 @@ export class AddOurProductComponent {
     { id: 5, name: 'fluconazole' },
     { id: 6, name: 'guanfacine' },
   ];
-  
+
   public genericNameList = [
     { id: 1, name: 'alendronate' },
     { id: 2, name: 'bupropion ' },
@@ -75,14 +74,18 @@ export class AddOurProductComponent {
     { id: 6, name: 'Septra ' },
   ];
 
-  constructor(public fromBuilder: FormBuilder,private localStorageService: LocalStorageService){
+  constructor(
+    public fromBuilder: FormBuilder,
+    private localStorageService: LocalStorageService,
+  ) {
     this.initializeForm();
   }
   ngOnInit(): void {
     this.categories = this.localStorageService.getObject('categories');
-    if(this.localStorageService.getObject('OurProducts').length > 0){
+    if (this.localStorageService.getObject('OurProducts').length > 0) {
       this.ourProducts = this.localStorageService.getObject('OurProducts');
-      this.productIdCounter = this.localStorageService.getObject('OurProducts').length;
+      this.productIdCounter =
+        this.localStorageService.getObject('OurProducts').length;
     }
   }
 
@@ -119,7 +122,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         productCode: productCode,
       });
-    }   
+    }
   }
 
   onProductNameChange($event: any) {
@@ -128,7 +131,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         productName: productName,
       });
-    }   
+    }
   }
 
   onCompositionEntered($event: any) {
@@ -137,16 +140,16 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         composition: composition,
       });
-    }   
+    }
   }
 
-  onDistributerEntered($event: any) {
+  onDistributerSelected($event: any) {
     if ($event && !($event instanceof Event)) {
-      const distributer: string = $event;
+      const selectedDistributor: any = $event;
       this.productsForm.patchValue({
-        composition: distributer,
+        distributor: selectedDistributor.name,
       });
-    }   
+    }
   }
 
   onPackSizeEntered($event: any) {
@@ -155,7 +158,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         packSize: packSize,
       });
-    }   
+    }
   }
 
   onFlavorEntered($event: any) {
@@ -164,7 +167,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         flavor: flavor,
       });
-    }   
+    }
   }
 
   onColorEntered($event: any) {
@@ -173,7 +176,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         color: color,
       });
-    }   
+    }
   }
 
   onIMSEntered($event: any) {
@@ -182,9 +185,8 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         packSize: IMS,
       });
-    }   
+    }
   }
-
 
   onSwotEntered($event: any) {
     if ($event && !($event instanceof Event)) {
@@ -192,7 +194,7 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         swot: swot,
       });
-    }   
+    }
   }
 
   onCategorySelected($event: any) {
@@ -203,9 +205,15 @@ export class AddOurProductComponent {
         category: selectedCategory.name,
       });
 
-      if (selectedCategory.subcategories &&selectedCategory.subcategories.length > 0){
+      if (
+        selectedCategory.subcategories &&
+        selectedCategory.subcategories.length > 0
+      ) {
         this.subcategories = selectedCategory.subcategories;
-      } else if (selectedCategory.products && selectedCategory.products.length > 0) {
+      } else if (
+        selectedCategory.products &&
+        selectedCategory.products.length > 0
+      ) {
         this.productList = selectedCategory.products;
       }
     }
@@ -256,7 +264,7 @@ export class AddOurProductComponent {
     }
   }
 
-  onBrandNameSelected($event: any){
+  onBrandNameSelected($event: any) {
     if ($event && !($event instanceof Event)) {
       const selectedBrandName: any = $event;
       this.productsForm.patchValue({
@@ -283,11 +291,11 @@ export class AddOurProductComponent {
     }
   }
 
-  onReset(){
+  onReset() {
     this.productsForm.reset();
   }
 
-  onSubmit(){
+  onSubmit() {
     debugger;
     // const productWithId = {
     //   ...this.productsForm.value,
@@ -295,6 +303,6 @@ export class AddOurProductComponent {
     // };
     console.log(this.productsForm.value);
     this.ourProducts.push(this.productsForm.value);
-    this.localStorageService.setObject("OurProducts",this.ourProducts);
+    this.localStorageService.setObject('OurProducts', this.ourProducts);
   }
 }

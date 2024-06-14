@@ -12,6 +12,7 @@ export class CustomInputComponent {
   @Input() inputId: string = 'custom-input';
   @Input() value: string = '';  
   @Input() isRequired: boolean = false;
+  @Input() isTextArea: boolean = false;
   @Input() control: FormControl = new FormControl(); // Accepting FormControl as input
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 

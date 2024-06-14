@@ -8,11 +8,10 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Product Code</th>
           <th>Product Name</th>
           <th>Category</th>
           <th>Subcategory</th>
-          <th>Product Master Name</th>
           <th>Generic Name</th>
           <th>Manufacturer</th>
           <th>Dosage Form</th>
@@ -22,11 +21,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of filteredProducts">
-          <td>{{ product.id }}</td>
+          <td>{{ product.productCode }}</td>
           <td>{{ product.productName }}</td>
           <td>{{ product.category }}</td>
           <td>{{ product.subcategory }}</td>
-          <td>{{ product.productMasterName }}</td>
           <td>{{ product.genericName }}</td>
           <td>{{ product.manufacturer }}</td>
           <td>{{ product.dosageForm }}</td>
