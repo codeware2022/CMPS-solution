@@ -1,1 +1,61 @@
-<p>add-product-master works!</p>
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Product Master" class="justify-content-center" [options]="false">
+            <form [formGroup]="productsForm" action="javascript:">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <app-typeahead [items]="categories" 
+                                searchItem="Theraputic Category"
+                                (selected)="onCategorySelected($event)" 
+                                [control]="productsForm.controls['category']"
+                                [isRequired]="true" aria-autocomplete="none">
+                            </app-typeahead>
+                        </div>
+
+                        <div class="form-group" *ngIf="subcategories && subcategories.length > 0">
+                            <app-typeahead [items]="subcategories" 
+                                searchItem="Sub Theraputic Category"
+                                (selected)="onSubCategorySelected($event)" 
+                                aria-autocomplete="none">
+                            </app-typeahead>
+                        </div>
+
+                        <div class="form-group">
+                            <app-custom-input label="Enter Brand name:"
+                                 placeholder="Brand name"
+                                (valueChange)="onBrandNameChange($event)" 
+                                [control]="productsForm.controls['brandName']"
+                                [isRequired]="true">
+                            </app-custom-input>
+                        </div>
+                        <div class="form-group mt-3 ml-2">
+                            <button [disabled]="productsForm.invalid" 
+                            class="btn btn-primary ml-3" (click)="onSubmit()">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger" (click)="onReset()">Reset</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <app-typeahead [items]="manufacturerList" 
+                                searchItem="Manufacturer" 
+                                aria-autocomplete="none"
+                                (selected)="onManufacturerSelected($event)">
+                            </app-typeahead>
+                        </div>
+
+                        <div class="form-group">
+                            <app-custom-input label="Enter Distributer:" 
+                                placeholder="Distributer / Local Agent"
+                                (valueChange)="onDistributerEntered($event)"
+                                [control]="productsForm.controls['distributor']">
+                            </app-custom-input>
+                        </div>                       
+                    </div>
+                </div>
+            </form>
+        </app-card>
+    </div>
+</div>
