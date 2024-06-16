@@ -11,8 +11,8 @@ export class ViewDistributorComponent implements OnInit {
 
   distributorList:IDistributor [] = [];
   constructor(private localStorageService:LocalStorageService){
-
   }
+  
   ngOnInit(): void {
     this. getAllDistributors();
   }
