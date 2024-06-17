@@ -1,7 +1,6 @@
 import { style } from '@angular/animations';
 import { ContentChild, Injectable, ViewChild, ViewChildren } from '@angular/core';
 
-
 export interface NavigationItem {
   id: string;
   title: string;
@@ -448,6 +447,26 @@ const NavigationItems = [
               url: '/home/territories/view-distributor'              
             }
           ]       
+        },
+        {
+          id:'town',
+          title:'Town',
+          type:'collapse',
+          icon:'feather icon-compass',
+          children:[
+            {
+              id:'add-town',
+              title:'Add Town',
+              type:'item',
+              url:'/home/territories/add-town'
+            },
+            {
+              id:'view-town',
+              title:'Town List',
+              type:'item',
+              url:'/home/territories/view-town'
+            }
+          ]
         },
         {
           id: 'area',
