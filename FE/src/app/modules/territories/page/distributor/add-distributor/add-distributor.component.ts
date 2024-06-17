@@ -133,8 +133,7 @@ onReset(){
 
     this.localStorageService.setObject('Distributor',this.distributor).subscribe(
       (status:boolean)=>{
-        if(status){
-          debugger;        
+        if(status){          
           this.onReset();
           this.messageStatus = status;
           this.message = "Data Successfully Saved!";

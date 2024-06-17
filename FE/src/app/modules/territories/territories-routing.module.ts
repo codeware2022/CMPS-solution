@@ -9,6 +9,8 @@ import { ViewRangeComponent } from './page/range/view-range/view-range.component
 import { AddZoneComponent } from './page/zone/add-zone/add-zone.component';
 import { ViewZoneComponent } from './page/zone/view-zone/view-zone.component';
 import { DistributorProfileComponent } from './page/distributor/distributor-profile/distributor-profile.component';
+import { AddTownComponent } from './page/town/add-town/add-town.component';
+import { ViewTownComponent } from './page/town/view-town/view-town.component';
 
 
 
@@ -28,6 +30,16 @@ const routes: Routes = [
     pathMatch:'full',
     component:DistributorProfileComponent
   }, 
+  {
+    path:'add-town',
+    pathMatch:'full',
+    component:AddTownComponent
+  },
+  {
+    path:'view-town',
+    pathMatch:'full',
+    component:ViewTownComponent
+  },
   {
     path:'add-area',
     pathMatch:'full',
