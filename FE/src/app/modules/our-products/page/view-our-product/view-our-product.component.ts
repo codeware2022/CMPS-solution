@@ -12,6 +12,7 @@ export class ViewOurProductComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private localStorageService: LocalStorageService) {}
+  
   ngOnInit(): void {
     this.ourProducts = this.localStorageService.getObject('OurProducts');
   }

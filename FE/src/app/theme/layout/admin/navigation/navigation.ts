@@ -443,7 +443,7 @@ const NavigationItems = [
             },
             {
               id:'view-distributor',
-              title:'View Distributor',
+              title:'Distributors List',
               type:'item',
               url: '/home/territories/view-distributor'              
             }

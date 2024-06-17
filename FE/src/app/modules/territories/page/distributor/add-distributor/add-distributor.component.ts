@@ -14,6 +14,8 @@ export class AddDistributorComponent implements OnInit {
   distributor : IDistributor[]=[];
   message:string;
   messageStatus : boolean = false;
+  rowNo:number;
+  
   constructor(private formBuilder:FormBuilder, private localStorageService:LocalStorageService){
     this.initializeForm();
   }
@@ -25,13 +27,18 @@ export class AddDistributorComponent implements OnInit {
   initializeForm(){
     this.distributorForm = this.formBuilder.group({
       distributorName: [null, Validators.required],
+      ownerName:[null,Validators.required],     
       address: [null],
+      storesAddress:[null],
       contactNo:[null,Validators.required],
       email:[null,Validators.required],
+      businessRegistrationNo:[null,Validators.required],
+      pharmacyLicenseNo:[null, Validators.required],
       remarks:[null]
     });
   };
 
+  //#region "Form Input Properties"
   onDistributorNameEntered($event: any){
     if ($event && !($event instanceof Event)){
       const distributorName : String = $event;
@@ -40,6 +47,42 @@ export class AddDistributorComponent implements OnInit {
       });
     };
   };
+
+  onOwnerNameEntered($event: any){
+    if($event && !($event instanceof Event)){
+      const ownerName:string = $event;
+      this.distributorForm.patchValue({
+        ownerName : ownerName
+      });
+    }
+  }
+
+  onStoresAddressEntered($event){
+    if($event && !($event instanceof Event)){
+      const storesAddress:string = $event;
+      this.distributorForm.patchValue({
+        storesAddress : storesAddress
+      });
+    }
+  }
+
+  onBusinessRegistrationNoEntered($event){
+     if($event && !($event instanceof Event)){
+      const businessRegistrationNo:string = $event;
+      this.distributorForm.patchValue({
+        businessRegistrationNo:businessRegistrationNo
+      });
+     }
+  }
+
+  onPharmacyLicenseNo($event){
+    if($event && !($event instanceof Event)){
+      const pharmacyLicenseNo:string = $event;
+      this.distributorForm.patchValue({
+        pharmacyLicenseNo : pharmacyLicenseNo
+      });
+    }
+  }
 
   onAddressEntered($event : any){
     if($event && !($event instanceof Event)){
@@ -76,13 +119,18 @@ export class AddDistributorComponent implements OnInit {
       });
     };
   };
-
-  onReset(){
+//#endregion "Form Input Properties"
+ 
+onReset(){
     this.distributorForm.reset();
   }
 
-  addDistributor(){
-    this.distributor.push(this.distributorForm.value);
+  addDistributor(){   
+    
+    this.distributor.push({
+      id: this.distributor.length + 1,
+      ...this.distributorForm.value});
+
     this.localStorageService.setObject('Distributor',this.distributor).subscribe(
       (status:boolean)=>{
         if(status){

@@ -14,11 +14,27 @@
                                 </app-custom-input>
                             </div>   
                             
+                            <div class="form-group">
+                                <app-custom-input label="Enter Owner's Name:"
+                                    placeholder="Owner's Name"
+                                    [control]="distributorForm.controls['ownerName']"
+                                    [isRequired]="true"
+                                    (valueChange)="onOwnerNameEntered($event)">                                    
+                                </app-custom-input>
+                            </div>   
+
                             <div class="form-group" >
                                 <app-custom-input label="Enter Address:"
                                     placeholder="Address"
                                     [control]="distributorForm.controls['address']"                                    
                                     (valueChange)="onAddressEntered($event)">
+                                </app-custom-input>
+                            </div>
+                            <div class="form-group">
+                                <app-custom-input label="Enter Stores Address:"
+                                placeholder="Stores Address"
+                                [control]="distributorForm.controls['storesAddress']"                                
+                                (valueChange)="onStoresAddressEntered($event)">
                                 </app-custom-input>
                             </div>
                             <div class="form-group">
@@ -32,7 +48,6 @@
                         </div>
 
                         <div class="col-md-6">
-
                             <div class="form-group">
                                 <app-custom-input  label="Enter Email:"
                                     placeholder="Email"
@@ -42,6 +57,25 @@
                                 </app-custom-input>
                             </div>
                             
+                            <div class="form-group">
+                                <app-custom-input label="Enter Business Registration No:" 
+                                placeholder="Business Registration No"
+                                [control]="distributorForm.controls['businessRegistrationNo']"
+                                [isRequired]="true"
+                                (valueChange)="onBusinessRegistrationNoEntered($event)">                                    
+                                </app-custom-input>
+                            </div>
+                            
+                            <div class="form-group">
+                                <app-custom-input label="Enter Pharmacy License No:"
+                                placeholder="Pharmacy License No"
+                                [control]="distributorForm.controls['pharmacyLicenseNo']"
+                                [isRequired]="true"
+                                (valueChange)="onPharmacyLicenseNo($event)">
+                                </app-custom-input>
+
+                            </div>
+                                                                                    
                             <div class="form-group">
                                 <app-custom-input  label="Enter Remarks:"
                                     placeholder="Remarks"
@@ -57,7 +91,7 @@
                                     Save
                                 </button>
                                 <button class="btn btn-danger" (click)="onReset()">Reset</button>
-                                <button class="btn btn-link">Go to List</button>
+                                <button class="btn btn-info" routerLink="/home/territories/view-distributor">Go to List</button>
                             </div>
 
                             <div class="m-t-5 form-group"  *ngIf="messageStatus; else errorTemplate">

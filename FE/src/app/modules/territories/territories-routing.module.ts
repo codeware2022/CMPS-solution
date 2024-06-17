@@ -8,6 +8,7 @@ import { AddRangeComponent } from './page/range/add-range/add-range.component';
 import { ViewRangeComponent } from './page/range/view-range/view-range.component';
 import { AddZoneComponent } from './page/zone/add-zone/add-zone.component';
 import { ViewZoneComponent } from './page/zone/view-zone/view-zone.component';
+import { DistributorProfileComponent } from './page/distributor/distributor-profile/distributor-profile.component';
 
 
 
@@ -21,7 +22,12 @@ const routes: Routes = [
     path:'view-distributor',
     pathMatch:'full',
     component:ViewDistributorComponent
-  },  
+  },
+  {
+    path:'distributor-profile',
+    pathMatch:'full',
+    component:DistributorProfileComponent
+  }, 
   {
     path:'add-area',
     pathMatch:'full',
