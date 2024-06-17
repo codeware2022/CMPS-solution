@@ -14,7 +14,7 @@ import { OurProductProfileComponent } from './page/our-product-profile/our-produ
     AddOurProductComponent,
     ViewOurProductComponent,
     IngredientsTableComponent,
-    OurProductProfileComponent
+    OurProductProfileComponent,    
   ],
   imports: [
     CommonModule,

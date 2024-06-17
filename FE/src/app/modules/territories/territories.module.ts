@@ -10,16 +10,25 @@ import { AddRangeComponent } from './page/range/add-range/add-range.component';
 import { ViewRangeComponent } from './page/range/view-range/view-range.component';
 import { AddZoneComponent } from './page/zone/add-zone/add-zone.component';
 import { ViewZoneComponent } from './page/zone/view-zone/view-zone.component';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { DistributorProfileComponent } from './page/distributor/distributor-profile/distributor-profile.component';
 
 @NgModule({
   declarations: [   
     AddDistributorComponent, 
-    ViewDistributorComponent, AddAreaComponent, ViewAreaComponent, AddRangeComponent, ViewRangeComponent, AddZoneComponent, ViewZoneComponent
+    ViewDistributorComponent,
+    AddAreaComponent, 
+    ViewAreaComponent, 
+    AddRangeComponent, 
+    ViewRangeComponent, 
+    AddZoneComponent, 
+    ViewZoneComponent, DistributorProfileComponent
   ],
   imports: [
     CommonModule,
     TerritoriesRoutingModule,
     CardModule,   
+    SharedModule,
   ]
 })
 export class TerritoriesModule { }

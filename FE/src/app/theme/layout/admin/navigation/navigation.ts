@@ -48,7 +48,7 @@ const NavigationItems = [
         type:'collapse',
         icon:'feather icon-package',
         class:'nav-item',
-        children:[
+        children:[       
           {
             id:'add-our-product',
             title:'Add Our Product',
@@ -443,7 +443,7 @@ const NavigationItems = [
             },
             {
               id:'view-distributor',
-              title:'View Distributor',
+              title:'Distributors List',
               type:'item',
               url: '/home/territories/view-distributor'              
             }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,17 @@ export class LocalStorageService {
   constructor() { } 
 
   // Method to set an object to local storage
-  setObject(key: string, value: any): void {
-    const jsonString = JSON.stringify(value);
-    localStorage.setItem(key, jsonString);
+  setObject(key: string, value: any):Observable<boolean> {
+    try{
+      const jsonString = JSON.stringify(value);    
+      localStorage.setItem(key, jsonString);
+      return of(true);
+    }
+    catch(error){
+      console.error('Error saving to localStorage', error);
+      return of(false);
+    }      
+    
   }
 
   // Method to get an object from local storage

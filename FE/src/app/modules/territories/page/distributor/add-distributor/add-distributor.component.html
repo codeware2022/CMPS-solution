@@ -1,42 +1,109 @@
-<div class="row justify-content-center">   
+<div class="row justify-content-center">
     <div class="col-sm-12">
-        <app-card cardTitle="Distributor"  [options]="false" >         
+        <app-card cardTitle="Distributor" [options]="false">
             <div class="col-md-12">
-                <form action="javascript:">
+                <form [formGroup]="distributorForm" action="javascript:">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6">     
                             <div class="form-group">
-                                <label>Distributor Name </label>
-                                <input type="text" class="form-control" placeholder="Distributor Name" />
+                                <app-custom-input label="Enter Distributor Name:"
+                                    placeholder="Distributor Name"
+                                    [control]="distributorForm.controls['distributorName']"
+                                    [isRequired]="true"
+                                    (valueChange)="onDistributorNameEntered($event)">                                    
+                                </app-custom-input>
+                            </div>   
+                            
+                            <div class="form-group">
+                                <app-custom-input label="Enter Owner's Name:"
+                                    placeholder="Owner's Name"
+                                    [control]="distributorForm.controls['ownerName']"
+                                    [isRequired]="true"
+                                    (valueChange)="onOwnerNameEntered($event)">                                    
+                                </app-custom-input>
+                            </div>   
+
+                            <div class="form-group" >
+                                <app-custom-input label="Enter Address:"
+                                    placeholder="Address"
+                                    [control]="distributorForm.controls['address']"                                    
+                                    (valueChange)="onAddressEntered($event)">
+                                </app-custom-input>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" class="form-control" placeholder="Address" />
-                            </div>     
+                                <app-custom-input label="Enter Stores Address:"
+                                placeholder="Stores Address"
+                                [control]="distributorForm.controls['storesAddress']"                                
+                                (valueChange)="onStoresAddressEntered($event)">
+                                </app-custom-input>
+                            </div>
                             <div class="form-group">
-                                <label>Contact No</label>
-                                <input type="text" class="form-control" placeholder="Contact No" />
-                            </div>                     
+                                <app-custom-input label="Enter Contact No:"
+                                    placeholder="Contact No"
+                                    [control]="distributorForm.controls['contactNo']"
+                                    [isRequired]="true"
+                                    (valueChange)="OnContactNoEntered($event)">
+                                </app-custom-input>
+                            </div>
                         </div>
 
-                    
                         <div class="col-md-6">
-                                                   
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email" />
-                            </div>  
-                            <div class="form-group">
-                                <label>Remarks</label>
-                                <textarea class="form-control" rows="2"></textarea>
+                                <app-custom-input  label="Enter Email:"
+                                    placeholder="Email"
+                                    [control] = "distributorForm.controls['email']"
+                                    [isRequired]="true"
+                                    (valueChange)="onEmailEntered($event)">                                    
+                                </app-custom-input>
                             </div>
-                            <div class="form-group m-t-10">                                
-                                <button class="btn btn-primary">Save</button>
-                                <button class="btn btn-danger">Reset</button>
-                                <button class="btn btn-link">Go to List</button>
-                            </div>                           
-                        </div>                     
-                    </div>            
+                            
+                            <div class="form-group">
+                                <app-custom-input label="Enter Business Registration No:" 
+                                placeholder="Business Registration No"
+                                [control]="distributorForm.controls['businessRegistrationNo']"
+                                [isRequired]="true"
+                                (valueChange)="onBusinessRegistrationNoEntered($event)">                                    
+                                </app-custom-input>
+                            </div>
+                            
+                            <div class="form-group">
+                                <app-custom-input label="Enter Pharmacy License No:"
+                                placeholder="Pharmacy License No"
+                                [control]="distributorForm.controls['pharmacyLicenseNo']"
+                                [isRequired]="true"
+                                (valueChange)="onPharmacyLicenseNo($event)">
+                                </app-custom-input>
+
+                            </div>
+                                                                                    
+                            <div class="form-group">
+                                <app-custom-input  label="Enter Remarks:"
+                                    placeholder="Remarks"
+                                    [control]="distributorForm.controls['remarks']"
+                                    (valueChange)="onRemarksEntered($event)">
+                                </app-custom-input >
+                            </div>
+
+                            <div class="form-group m-t-10">
+                                <button class="btn btn-primary" 
+                                (click)="addDistributor()"
+                                [disabled]="distributorForm.invalid">
+                                    Save
+                                </button>
+                                <button class="btn btn-danger" (click)="onReset()">Reset</button>
+                                <button class="btn btn-info" routerLink="/home/territories/view-distributor">Go to List</button>
+                            </div>
+
+                            <div class="m-t-5 form-group"  *ngIf="messageStatus; else errorTemplate">
+                                <span class="alert alert-success alert-sm " *ngIf="message!=null; else  null">{{message}}</span>                                                      
+                            </div>
+                            <ng-template #errorTemplate>
+                                <span class="alert alert-danger alert-sm " *ngIf="message!=null; else  null">{{message}}</span>   
+                            </ng-template>   
+                        </div>
+
+                                    
+                    </div>
                 </form>
             </div>
         </app-card>
