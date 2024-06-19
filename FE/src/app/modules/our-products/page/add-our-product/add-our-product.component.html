@@ -161,13 +161,15 @@
             </div>
 
             <div class="form-group">
-              <app-custom-input
+              <!-- <app-custom-input
                 label="Enter color:"
                 placeholder="Color"
                 (valueChange)="onColorEntered($event)"
                 [control]="productsForm.controls['color']"
               >
-              </app-custom-input>
+              </app-custom-input> -->
+
+              <app-color-picker> </app-color-picker>
             </div>
 
             <div class="form-group">

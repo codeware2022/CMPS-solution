@@ -1,0 +1,21 @@
+<div class="color-picker">
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      [value]="color"
+      (click)="openColorPicker()"
+      readonly
+    />
+
+    <div class="input-group-append">
+      <input
+        type="color"
+        [(ngModel)]="color"
+        class="color-input"
+        #colorInput
+        (input)="onColorChange(colorInput.value)"
+      />
+    </div>
+  </div>
+</div>
