@@ -1,0 +1,44 @@
+// .color-picker {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// .color-box {
+//   width: 36px;
+//   height: 36px;
+//   border: 1px solid #ccc;
+//   cursor: pointer;
+// }
+
+// .d-none {
+//   display: none;
+// }
+
+.color-picker {
+  position: relative;
+  display: inline-block;
+
+  .input-group {
+    display: flex;
+    align-items: center;
+
+    .form-control {
+      border-radius: 0;
+    }
+
+    .input-group-append {
+      display: flex;
+      align-items: center;
+
+      .color-input {
+        width: 40px; // Adjust as needed
+        height: 36px; // Adjust as needed
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

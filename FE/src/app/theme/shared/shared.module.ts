@@ -27,9 +27,11 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
+import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 
 @NgModule({
-  declarations: [SpinnerComponent,
+  declarations: [
+    SpinnerComponent,
     TypeheadInputComponent,
     NgTypeheadInputOptionTemplateDirective,
     NgTypeheadInputLabelTemplateDirective,
@@ -43,7 +45,8 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     ClickOutsideDirective,
     TypeaheadComponent,
     CustomInputComponent,
-    PhotoUploadComponent
+    PhotoUploadComponent,
+    ColorPickerComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,7 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     NgScrollbarModule,
     HttpClientModule,
     NgApexchartsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   exports: [
     CommonModule,
@@ -77,7 +80,8 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     NgApexchartsModule,
     TypeaheadComponent,
     CustomInputComponent,
-    PhotoUploadComponent
+    PhotoUploadComponent,
+    ColorPickerComponent,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}
