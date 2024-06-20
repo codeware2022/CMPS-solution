@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ColorPickerService } from 'ngx-color-picker';
 
 @Component({
@@ -9,27 +16,11 @@ import { ColorPickerService } from 'ngx-color-picker';
 export class ColorPickerComponent {
   color: string = '#000000';
 
-  @ViewChild('colorInput', { static: false }) colorInput: ElementRef;
+  @Output() colorChange = new EventEmitter<string>();
 
-  openColorPicker() {
-    this.colorInput.nativeElement.click();
+  onColorChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.color = inputElement.value;
+    this.colorChange.emit(this.color);
   }
-
-  onColorChange(newColor: string) {
-    this.color = newColor;
-  }
-
-  // color: string = '#000000'; // default color
-
-  // openColorPicker() {
-  //   const colorInput: HTMLElement | null =
-  //     document.querySelector('.color-input');
-  //   if (colorInput) {
-  //     colorInput.click();
-  //   }
-  // }
-
-  // onColorChange(newColor: string) {
-  //   this.color = newColor;
-  // }
 }

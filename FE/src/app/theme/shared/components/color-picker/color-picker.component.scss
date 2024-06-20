@@ -1,26 +1,15 @@
-// .color-picker {
-//   position: relative;
-//   display: inline-block;
-// }
-
-// .color-box {
-//   width: 36px;
-//   height: 36px;
-//   border: 1px solid #ccc;
-//   cursor: pointer;
-// }
-
-// .d-none {
-//   display: none;
-// }
-
 .color-picker {
   position: relative;
   display: inline-block;
 
   .input-group {
     display: flex;
-    align-items: center;
+    flex-direction: column; // Changed to column to align label on top
+    align-items: flex-start; // Align items to the start to ensure label is properly aligned
+
+    .form-label {
+      margin-bottom: 0.5rem; // Space between label and input
+    }
 
     .form-control {
       border-radius: 0;
@@ -38,6 +27,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
+        margin-left: -1px; // To remove the gap between text input and color input
       }
     }
   }

@@ -179,6 +179,15 @@ export class AddOurProductComponent {
     }
   }
 
+  onColorChange($event: any) {
+    if ($event && !($event instanceof Event)) {
+      const color: string = $event;
+      this.productsForm.patchValue({
+        color: color,
+      });
+    }
+  }
+
   onIMSEntered($event: any) {
     if ($event && !($event instanceof Event)) {
       const IMS: string = $event;
