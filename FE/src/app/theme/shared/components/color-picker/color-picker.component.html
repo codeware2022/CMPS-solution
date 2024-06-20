@@ -1,21 +1,13 @@
-<div class="color-picker">
+<div class="form-group">
+  <label for="colorInput" class="form-label">Select Color</label>
   <div class="input-group">
     <input
-      type="text"
+      type="color"
       class="form-control"
-      [value]="color"
-      (click)="openColorPicker()"
-      readonly
+      id="colorInput"
+      [(ngModel)]="color"
+      (input)="onColorChange($event)"
     />
-
-    <div class="input-group-append">
-      <input
-        type="color"
-        [(ngModel)]="color"
-        class="color-input"
-        #colorInput
-        (input)="onColorChange(colorInput.value)"
-      />
-    </div>
+    <input type="text" class="form-control" [value]="color" readonly />
   </div>
 </div>
