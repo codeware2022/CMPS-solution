@@ -27,5 +27,12 @@
   <div *ngIf="control.invalid && (control.dirty || control.touched)" class="text-danger">
     <div *ngIf="control.errors?.required">{{ placeholder }} is required.</div>
   </div>
+
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="text-danger"
+  >
+    <div *ngIf="control.errors?.required">{{ searchItem }} is required.</div>
+  </div>
 </div>
 

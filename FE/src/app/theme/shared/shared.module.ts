@@ -28,6 +28,8 @@ import { TypeaheadComponent } from './components/typeahead/typeahead.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { DateTimePickerComponent } from './components/date-time-picker/date-time-picker.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
     CustomInputComponent,
     PhotoUploadComponent,
     ColorPickerComponent,
+    DateTimePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
     HttpClientModule,
     NgApexchartsModule,
     ModalModule.forRoot(),
+    NgxDaterangepickerMd.forRoot(),
   ],
   exports: [
     CommonModule,
@@ -82,6 +86,7 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
     CustomInputComponent,
     PhotoUploadComponent,
     ColorPickerComponent,
+    DateTimePickerComponent
   ],
 })
 export class SharedModule {}
