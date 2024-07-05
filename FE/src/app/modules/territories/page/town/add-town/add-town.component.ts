@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
-import { __runInitializers } from 'tslib';
-import { Itown } from '../../../interfaces/itown';
+import { ITown } from '../../../interfaces/itown';
 
 @Component({
   selector: 'app-add-town',
@@ -12,7 +11,7 @@ import { Itown } from '../../../interfaces/itown';
 export class AddTownComponent {
 
   townForm:FormGroup;
-  town:Itown[]=[];
+  town:ITown[]=[];
   messageStatus:boolean;
   message:string;
 

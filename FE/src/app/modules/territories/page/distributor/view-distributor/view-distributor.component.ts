@@ -43,7 +43,6 @@ export class ViewDistributorComponent {
 
 
   onSearch(txtSearch:any): void {
-
     const searchTerm = this.txtSearch.trim().toLowerCase();   
     if (searchTerm) {
       this.distributors = this.distributorList.filter(a => 

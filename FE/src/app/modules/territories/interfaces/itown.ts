@@ -1,6 +1,6 @@
-export interface Itown {
+export interface ITown {
     id:number,
     townName:string,
-    remarks:string
+    remarks:string,
 }
 

@@ -133,8 +133,7 @@ export class AddProductMasterComponent {
     this.productsForm.reset();
   }
 
-  onSubmit(){
-    console.log(this.productsForm.value);
+  onSubmit(){    
     this.ourProducts.push(this.productsForm.value);
     this.localStorageService.setObject("OurProducts",this.ourProducts).subscribe(
       (status:boolean)=>{

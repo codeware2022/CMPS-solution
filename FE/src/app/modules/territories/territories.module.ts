@@ -14,6 +14,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { DistributorProfileComponent } from './page/distributor/distributor-profile/distributor-profile.component';
 import { AddTownComponent } from './page/town/add-town/add-town.component';
 import { ViewTownComponent } from './page/town/view-town/view-town.component';
+import { AreaTownComponent } from './page/area/view-area/area-town/area-town.component';
 
 @NgModule({
   declarations: [   
@@ -24,7 +25,7 @@ import { ViewTownComponent } from './page/town/view-town/view-town.component';
     AddRangeComponent, 
     ViewRangeComponent, 
     AddZoneComponent, 
-    ViewZoneComponent, DistributorProfileComponent, AddTownComponent, ViewTownComponent
+    ViewZoneComponent, DistributorProfileComponent, AddTownComponent, ViewTownComponent, AreaTownComponent
   ],
   imports: [
     CommonModule,
