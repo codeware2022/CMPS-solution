@@ -15,11 +15,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./typeahead.component.scss'],
 })
 export class TypeaheadComponent implements OnInit, OnChanges {
-  query: string = '';
   @Input() items: any[] = [];
   @Input() searchItem: string = '';
   @Input() isRequired: boolean = false;
-  @Input() control: FormControl = new FormControl(); // Accepting FormControl as input
+  @Input() control: FormControl = new FormControl();
   @Output() selected = new EventEmitter<any>();
   filteredItems: any[] = [];
   selectedIndex: number = -1;
@@ -29,30 +28,32 @@ export class TypeaheadComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.filteredItems = this.items;
+    this.control.valueChanges.subscribe((value) => {
+      this.onSearch(value);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['items']) {
       this.filteredItems = this.items;
-      this.onSearch(); // Optionally filter based on existing query
+      this.onSearch(this.control.value);
     }
   }
 
-  onSearch(): void {
-    if (this.query) {
+  onSearch(query: string): void {
+    if (query) {
       this.filteredItems = this.items.filter((item) =>
-        item.name.toLowerCase().includes(this.query.toLowerCase())
+        item.name.toLowerCase().includes(query.toLowerCase()),
       );
     } else {
       this.filteredItems = this.items;
     }
-    //this.showList = this.filteredItems.length > 0;
+
     this.selectedIndex = -1;
   }
 
   selectItem(item: any): void {
-    this.query = item.name;
-    //this.filteredItems = this.items;
+    this.control.setValue(item.name);
     this.selected.emit(item);
     this.showList = false;
   }

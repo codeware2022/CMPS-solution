@@ -1,16 +1,15 @@
 <div class="form-group mt-2">
-  <label for="typeahead-input" class="form-label"
-    >Search for a {{ searchItem }}:<span *ngIf="isRequired" class="text-danger"
+  <label for="typeahead-input" class="form-label">
+    Search for a {{ searchItem }}:<span *ngIf="isRequired" class="text-danger"
       >*</span
-    ></label
-  >
+    >
+  </label>
   <div class="input-wrapper">
     <input
       id="typeahead-input"
       type="text"
-      [(ngModel)]="query"
       [formControl]="control"
-      (input)="onSearch()"
+      (input)="onSearch(control.value)"
       placeholder="Search..."
       class="form-control"
     />
