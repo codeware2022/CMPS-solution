@@ -307,6 +307,6 @@ export class AddOurProductComponent {
   onSubmit() {
     console.log(this.productsForm.value);
     this.ourProducts.push(this.productsForm.value);
-    this.localStorageService.setObject('OurProducts', this.ourProducts);
+    this.localStorageService.setObject('OurProducts', this.ourProducts);       
   }
 }

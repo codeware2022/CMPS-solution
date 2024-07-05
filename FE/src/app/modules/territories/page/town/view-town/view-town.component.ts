@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
-import { Itown } from '../../../interfaces/itown';
+import { ITown } from '../../../interfaces/itown';
 
 @Component({
   selector: 'app-view-town',
@@ -9,8 +9,8 @@ import { Itown } from '../../../interfaces/itown';
 })
 export class ViewTownComponent {
 
-  townList:Itown[]=[];
-  towns:Itown[];
+  townList:ITown[]=[];
+  towns:ITown[];
   page=1;
   pageSize=4;
   collectionSize:number;
