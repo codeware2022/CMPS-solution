@@ -1,5 +1,5 @@
 export interface IOurProduct {
-  // id: number;
+  id: number;
   // brandName: string;
   // productCode: string;
   // productName: string;
@@ -13,23 +13,23 @@ export interface IOurProduct {
   // photos: string;
 
   brandName: string;
-      productCode: string;
-      productName:  string;
-      category:  string;
-      subcategory:  string;
-      //productMasterName: [null, Validators.required],
-      genericName:  string;
-      manufacturer:  string;
-      dosageForm:  string;
-      composition:  string;
-      swot:  string;
-      distributor: string;
-      packSize:  string;
-      IMS:  string;
-      flavor:  string;
-      color:  string;
-      ingredient:  string;
-      photos:  string;
+  productCode: string;
+  productName:  string;
+  category:  string;
+  subcategory:  string;
+  //productMasterName: [null, Validators.required],
+  genericName:  string;
+  manufacturer:  string;
+  dosageForm:  string;
+  composition:  string;
+  swot:  string;
+  distributor: string;
+  packSize:  string;
+  IMS:  string;
+  flavor:  string;
+  color:  string;
+  ingredient:  string;
+  photos:  string;
 }
 
 export interface IProduct {

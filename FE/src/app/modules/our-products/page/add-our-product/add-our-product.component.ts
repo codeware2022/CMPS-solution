@@ -23,7 +23,7 @@ export class AddOurProductComponent {
   productList: IProduct[] = [];
 
   ourProducts: IOurProduct[] = [];
-  private productIdCounter: number = 1;
+  productId = 1;
 
   public brandNames = [
     { id: 1, name: 'alendronate' },
@@ -84,8 +84,8 @@ export class AddOurProductComponent {
     this.categories = this.localStorageService.getObject('categories');
     if (this.localStorageService.getObject('OurProducts').length > 0) {
       this.ourProducts = this.localStorageService.getObject('OurProducts');
-      this.productIdCounter =
-        this.localStorageService.getObject('OurProducts').length;
+      this.productId =
+        this.localStorageService.getObject('OurProducts').length + 1;
     }
   }
 
@@ -305,8 +305,10 @@ export class AddOurProductComponent {
   }
 
   onSubmit() {
-    console.log(this.productsForm.value);
-    this.ourProducts.push(this.productsForm.value);
+    this.ourProducts.push({
+      ...this.productsForm.value,
+      id : this.productId
+    });
     this.localStorageService.setObject('OurProducts', this.ourProducts);       
   }
 }
