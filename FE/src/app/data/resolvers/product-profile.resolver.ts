@@ -5,13 +5,13 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { IProduct } from 'src/app/theme/shared/models/Item';
+import { IOurProduct } from 'src/app/theme/shared/models/Item';
 import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductProfileResolver implements Resolve<IProduct> {
+export class ProductProfileResolver implements Resolve<IOurProduct> {
   constructor(private localStorageService: LocalStorageService,){}
   resolve(
     route: ActivatedRouteSnapshot,

@@ -1,21 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ICategory, IOurProduct, IProduct, ISubCategory } from 'src/app/theme/shared/models/Item';
+import {
+  IBrand,
+  ICategory,
+  IOurProduct,
+  ISubCategory,
+} from 'src/app/theme/shared/models/Item';
 import { LocalStorageService } from 'src/app/theme/shared/services/local-storage.service';
 
 @Component({
   selector: 'app-add-product-master',
   templateUrl: './add-product-master.component.html',
-  styleUrls: ['./add-product-master.component.scss']
+  styleUrls: ['./add-product-master.component.scss'],
 })
 export class AddProductMasterComponent {
-  productsForm: FormGroup;  
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  productsForm: FormGroup;
   selectedCategory: string;
   categories: ICategory[] = [];
-  subcategories: ISubCategory[] = [];  
-  ourProducts: IOurProduct[] = [];
-  private productIdCounter: number = 1;
-  
+  subcategories: ISubCategory[] = [];
+  productBrands: IBrand[] = [];
+
+  brandId: number = 0;
+
   public genericNameList = [
     { id: 1, name: 'alendronate' },
     { id: 2, name: 'bupropion ' },
@@ -56,24 +64,30 @@ export class AddProductMasterComponent {
     { id: 6, name: 'Septra ' },
   ];
 
-  constructor(public fromBuilder: FormBuilder,private localStorageService: LocalStorageService){
+  constructor(
+    public fromBuilder: FormBuilder,
+    private localStorageService: LocalStorageService,
+  ) {
     this.initializeForm();
   }
   ngOnInit(): void {
     this.categories = this.localStorageService.getObject('categories');
-    if(this.localStorageService.getObject('OurProducts').length > 0){
-      this.ourProducts = this.localStorageService.getObject('OurProducts');
-      this.productIdCounter = this.localStorageService.getObject('OurProducts').length;
+    if (
+      this.localStorageService.getObject('Brands') != null ||
+      this.localStorageService.getObject('Brands').length > 0
+    ) {
+      this.productBrands = this.localStorageService.getObject('Brands');
+      this.brandId = this.localStorageService.getObject('Brands').length;
     }
   }
 
   initializeForm() {
     this.productsForm = this.fromBuilder.group({
-      brandName: [null, Validators.required],    
+      brandName: [null, Validators.required],
       category: [null, Validators.required],
-      subcategory: [null],     
-      manufacturer: [null,Validators.required],    
-      distributor: [null],   
+      subcategory: [null],
+      manufacturer: [null, Validators.required],
+      distributor: [null],
     });
   }
 
@@ -87,7 +101,7 @@ export class AddProductMasterComponent {
       this.productsForm.patchValue({
         brandName: brandName,
       });
-    }   
+    }
   }
 
   onDistributerEntered($event: any) {
@@ -96,7 +110,7 @@ export class AddProductMasterComponent {
       this.productsForm.patchValue({
         composition: distributer,
       });
-    }   
+    }
   }
 
   onCategorySelected($event: any) {
@@ -105,7 +119,14 @@ export class AddProductMasterComponent {
 
       this.productsForm.patchValue({
         category: selectedCategory.name,
-      });      
+      });
+
+      if (
+        selectedCategory.subcategories &&
+        selectedCategory.subcategories.length > 0
+      ) {
+        this.subcategories = selectedCategory.subcategories;
+      }
     }
   }
 
@@ -122,27 +143,47 @@ export class AddProductMasterComponent {
   onManufacturerSelected($event: any) {
     if ($event && !($event instanceof Event)) {
       const selectedManufacturer: any = $event;
-      
+
       this.productsForm.patchValue({
         manufacturer: selectedManufacturer.name,
       });
     }
   }
 
-  onReset(){
+  onReset() {
     this.productsForm.reset();
   }
 
-  onSubmit(){    
-    this.ourProducts.push(this.productsForm.value);
-    this.localStorageService.setObject("OurProducts",this.ourProducts).subscribe(
-      (status:boolean)=>{
-        if(status){
-          this.onReset();
-        }
-        else{
-          console.log("Error saving to localStorage");
-        }
+  onSubmit() {
+    this.productBrands.push({
+      ...this.productsForm.value,
+      id: this.brandId + 1,
     });
+
+    this.localStorageService
+      .setObject('Brands', this.productBrands)
+      .subscribe((status: boolean) => {
+        if (status) {
+          this.displayMessage('success', 'Data submitted successfully!');
+          this.onReset();
+        } else {
+          this.displayMessage('error', 'Failed to submit data!');
+        }
+      });
+  }
+
+  private displayMessage(type: string, message: string) {
+    if (type === 'success') {
+      this.successMessage = message;
+      this.errorMessage = null;
+    } else if (type === 'error') {
+      this.errorMessage = message;
+      this.successMessage = null;
+    }
+
+    setTimeout(() => {
+      this.successMessage = null;
+      this.errorMessage = null;
+    }, 3000); // Message will disappear after 3 seconds
   }
 }

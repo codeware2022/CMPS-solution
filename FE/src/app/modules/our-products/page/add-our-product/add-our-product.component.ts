@@ -82,7 +82,10 @@ export class AddOurProductComponent {
   }
   ngOnInit(): void {
     this.categories = this.localStorageService.getObject('categories');
-    if (this.localStorageService.getObject('OurProducts').length > 0) {
+    if (
+      this.localStorageService.getObject('OurProducts') != null ||
+      this.localStorageService.getObject('OurProducts').length > 0
+    ) {
       this.ourProducts = this.localStorageService.getObject('OurProducts');
       this.productId =
         this.localStorageService.getObject('OurProducts').length + 1;
@@ -235,13 +238,6 @@ export class AddOurProductComponent {
       this.productsForm.patchValue({
         subcategory: selectedSubCategory.name,
       });
-
-      // if (
-      //   selectedSubCategory.products &&
-      //   selectedSubCategory.products.length > 0
-      // ) {
-      //   this.productList = selectedSubCategory.products;
-      // }
     }
   }
 
@@ -307,8 +303,17 @@ export class AddOurProductComponent {
   onSubmit() {
     this.ourProducts.push({
       ...this.productsForm.value,
-      id : this.productId
+      id: this.productId,
     });
-    this.localStorageService.setObject('OurProducts', this.ourProducts);       
+
+    this.localStorageService
+      .setObject('OurProducts', this.ourProducts)
+      .subscribe((status: boolean) => {
+        if (status) {
+          this.onReset();
+        } else {
+          console.log('Error saving to localStorage');
+        }
+      });
   }
 }
