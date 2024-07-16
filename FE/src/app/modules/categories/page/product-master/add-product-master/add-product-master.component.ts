@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MsgSubmitComponent } from 'src/app/theme/shared/components/msg-submit/msg-submit.component';
 import {
   IBrand,
   ICategory,
@@ -17,7 +16,6 @@ import { LocalStorageService } from 'src/app/theme/shared/services/local-storage
 export class AddProductMasterComponent {
   successMessage: string | null = null;
   errorMessage: string | null = null;
-  //@ViewChild('successMessage') successMessage: MsgSubmitComponent;
   productsForm: FormGroup;
   selectedCategory: string;
   categories: ICategory[] = [];
