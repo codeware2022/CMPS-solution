@@ -30,6 +30,8 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { DateTimePickerComponent } from './components/date-time-picker/date-time-picker.component';
+import { MsgSubmitComponent } from './components/msg-submit/msg-submit.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { DateTimePickerComponent } from './components/date-time-picker/date-time
     PhotoUploadComponent,
     ColorPickerComponent,
     DateTimePickerComponent,
+    MsgSubmitComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +66,7 @@ import { DateTimePickerComponent } from './components/date-time-picker/date-time
     NgApexchartsModule,
     ModalModule.forRoot(),
     NgxDaterangepickerMd.forRoot(),
+    NgxPaginationModule
   ],
   exports: [
     CommonModule,
@@ -86,7 +90,9 @@ import { DateTimePickerComponent } from './components/date-time-picker/date-time
     CustomInputComponent,
     PhotoUploadComponent,
     ColorPickerComponent,
-    DateTimePickerComponent
+    DateTimePickerComponent,
+    MsgSubmitComponent,
+    NgxPaginationModule
   ],
 })
 export class SharedModule {}

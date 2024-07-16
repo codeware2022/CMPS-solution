@@ -53,7 +53,7 @@ export class ViewOurProductComponent implements OnInit {
         false,
     );
     return products;
-  }
+  }  
 
   addRandomProduct(product: IOurProduct) {
     console.log('Adding product:', product);

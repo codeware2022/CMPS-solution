@@ -32,6 +32,15 @@ export interface IOurProduct {
   photos:  string;
 }
 
+export interface IBrand {
+  id: number;
+  brandName: string,
+  category: number,
+  subcategory: number,
+  manufacturer: string,
+  distributor: string,
+}
+
 export interface IProduct {
   id: number;
   name: string;
